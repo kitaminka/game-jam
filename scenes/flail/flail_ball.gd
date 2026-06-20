@@ -63,9 +63,8 @@ func force_update_position() -> void:
 	_update_position()
 
 
-func _on_enemy_entered(node: Node2D) -> void:
-	var enemy := node as Enemy
-	if not is_instance_valid(enemy):
+func _on_enemy_entered(enemy: Node2D) -> void:
+	if not enemy or not enemy.has_method("apply_knockback") or not enemy.get("health_component"):
 		return
 
 	enemy.health_component.damage(damage)

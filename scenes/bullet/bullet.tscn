@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://fydhb1cxoad6"]
+
+[ext_resource type="Texture2D" uid="uid://ptd0sa7mmdpi" path="res://icon.png" id="1_7c8un"]
+[ext_resource type="Script" uid="uid://cuisvva3xk1ue" path="res://scenes/bullet/bullet.gd" id="1_83itf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_83itf"]
+
+[node name="Bullet" type="Area2D" unique_id=1843918926]
+script = ExtResource("1_83itf")
+metadata/_edit_group_ = true
+
+[node name="LifeTimer" type="Timer" parent="." unique_id=1631210331]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1997608264]
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("1_7c8un")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=396760790]
+shape = SubResource("CircleShape2D_83itf")
