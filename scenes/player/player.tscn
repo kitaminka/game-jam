@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://mqufp14bsu2u"]
+
+[ext_resource type="Texture2D" uid="uid://ptd0sa7mmdpi" path="res://icon.png" id="1_8afob"]
+[ext_resource type="Script" uid="uid://dqa7i1mbuww54" path="res://scenes/player/player.gd" id="1_dovo2"]
+[ext_resource type="PackedScene" uid="uid://c0qesnjljtwti" path="res://scenes/health/health.tscn" id="3_gmlin"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x7p2l"]
+
+[node name="Player" type="CharacterBody2D" unique_id=656747177]
+script = ExtResource("1_dovo2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1288802053]
+shape = SubResource("CircleShape2D_x7p2l")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=630288104]
+position = Vector2(0, -15.999999)
+scale = Vector2(0.017857142, 0.03571429)
+texture = ExtResource("1_8afob")
+
+[node name="Health" parent="." unique_id=134182971 instance=ExtResource("3_gmlin")]

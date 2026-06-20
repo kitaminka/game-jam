@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bt6fyd8jr3lip"]
+
+[ext_resource type="PackedScene" uid="uid://btfpk2cklm2nr" path="res://scenes/flail/flail_ball.tscn" id="1_7y2xs"]
+[ext_resource type="Script" uid="uid://buuegih5ba168" path="res://scenes/flail/flailset.gd" id="1_r32pp"]
+[ext_resource type="PackedScene" uid="uid://gbsgy7a03y4m" path="res://scenes/enemy/enemy.tscn" id="3_65iv0"]
+
+[node name="Testscene" type="Node2D" unique_id=1058412657]
+
+[node name="FlailSet" type="Node2D" parent="." unique_id=338507700]
+script = ExtResource("1_r32pp")
+metadata/_custom_type_script = "uid://buuegih5ba168"
+
+[node name="FlailBall" parent="FlailSet" unique_id=1956772644 instance=ExtResource("1_7y2xs")]
+position = Vector2(188, 105)
+
+[node name="FlailBall2" parent="FlailSet" unique_id=2139056484 node_paths=PackedStringArray("parent") instance=ExtResource("1_7y2xs")]
+position = Vector2(111, 65)
+radius = 100.0
+parent = NodePath("../FlailBall")
+
+[node name="FlailBall3" parent="FlailSet" unique_id=539517820 node_paths=PackedStringArray("parent") instance=ExtResource("1_7y2xs")]
+position = Vector2(227, 240)
+rotation_speed = -1.375
+radius = 40.0
+parent = NodePath("../FlailBall2")
+
+[node name="Enemy" parent="." unique_id=1871860269 instance=ExtResource("3_65iv0")]
+position = Vector2(568, 158)
+target = NodePath("../FlailSet/FlailBall3")
