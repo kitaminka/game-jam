@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://btfpk2cklm2nr" path="res://scenes/flail/flail_ball.tscn" id="3_qjeyg"]
 [ext_resource type="PackedScene" uid="uid://bqmaaklxptuwx" path="res://scenes/shooting_enemy/shooting_enemy.tscn" id="5_3qnke"]
 [ext_resource type="PackedScene" uid="uid://1y5yme0armh" path="res://scenes/flail/upgrade_ui.tscn" id="5_qjeyg"]
+[ext_resource type="Texture2D" uid="uid://c26j5m2rl5avi" path="res://assets/art/tile_0.png" id="7_wtsjf"]
 
 [node name="TestScene" type="Node2D" unique_id=988521978]
 
@@ -43,3 +44,15 @@ position = Vector2(-100, 72)
 [node name="UpgradeUI" parent="CanvasLayer" unique_id=491650584 instance=ExtResource("5_qjeyg")]
 visible = false
 offset_top = -22.0
+
+[node name="BG" type="Parallax2D" parent="." unique_id=2108547137]
+z_index = -2
+repeat_size = Vector2(32, 32)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="BG" unique_id=10269340]
+texture_repeat = 2
+texture = ExtResource("7_wtsjf")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 718.483, 452.101)
