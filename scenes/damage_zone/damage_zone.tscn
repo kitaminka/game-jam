@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://pjar1lternfx"]
+
+[ext_resource type="Texture2D" uid="uid://c5n8506i1u2em" path="res://assets/art/mr_cool.png" id="1_sjwqa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tcvav"]
+
+[node name="DamageZone" type="Area2D" unique_id=846632779]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1274436847]
+shape = SubResource("CircleShape2D_tcvav")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1391235954]
+texture = ExtResource("1_sjwqa")
+
+[node name="DamageZoneTimer" type="Timer" parent="." unique_id=755894189]
