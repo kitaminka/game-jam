@@ -12,6 +12,7 @@ melee_enabled = true
 melee_hurtbox = NodePath("HurtBox")
 
 [node name="HurtBox" type="Area2D" parent="." index="3" unique_id=1594991989]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" index="0" unique_id=486032791]
 shape = SubResource("CircleShape2D_8divv")

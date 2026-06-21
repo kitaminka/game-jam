@@ -57,15 +57,14 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 	if melee_enabled:
-		if dist2 < melee_distance*melee_distance and _melee_cooldown <= 0 and _knockback_velocity.is_zero_approx():
+		if (
+			dist2 < melee_distance*melee_distance
+			and _melee_cooldown <= 0
+			and _knockback_velocity.is_zero_approx()
+			and (melee_hurtbox.has_overlapping_areas() or melee_hurtbox.has_overlapping_bodies())
+		):
 			_melee_cooldown = melee_interval
-
-			for node: Node2D in melee_hurtbox.get_overlapping_areas() + melee_hurtbox.get_overlapping_bodies() :
-				var health := node.get("health_component") as HealthComponent
-				if health == null:
-					continue
-
-				health.damage(melee_damage)
+			cnb.health_component.damage(melee_damage)
 
 		_melee_cooldown -= delta
 		_melee_cooldown = maxf(_melee_cooldown, 0.0)
