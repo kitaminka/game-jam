@@ -32,6 +32,7 @@ var _prev_clothing_idx: int = 0
 @onready var player_sprite: Sprite2D = $Player/Sprite2D
 @onready var player_animation: AnimatedSprite2D = $Player/Sprite2D/AnimatedSprite2D
 
+
 static func get_instance() -> ChainAndBalls:
 	var cnb: ChainAndBalls = (Engine.get_main_loop() as SceneTree).get_first_node_in_group(&"chain_and_balls")
 
@@ -188,10 +189,10 @@ func _hide_animation() -> void:
 	player_animation.hide()
 
 
-func _udpate_nudity_state(amount: int) -> void:
+func _udpate_nudity_state(_amount: int) -> void:
 	const CLOTHING_ELEM := preload("res://scenes/chain_and_balls/discarded_clothing.tscn")
 
-	var idx := clampi(remap(health_component.health, health_component.initial_health, 0, 0, 3), 0, 2)
+	var idx := clampi(int(remap(health_component.health, health_component.initial_health, 0, 0, 3), 0, 2)
 	player_sprite.frame_coords.x = idx
 
 	if idx != _prev_clothing_idx and _prev_clothing_idx in [0, 1]:
