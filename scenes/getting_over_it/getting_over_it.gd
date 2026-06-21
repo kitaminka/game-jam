@@ -21,13 +21,6 @@ func _physics_process(delta: float) -> void:
 		want_player = get_global_mouse_position()
 		# want_player = get_global_mouse_position()
 		player.apply_central_force((want_player - player.global_position).normalized() * force_p)
-	elif not player.freeze and not flail.freeze:
-		pass
-		# flail.apply_central_force((get_global_mouse_position() - flail.global_position).normalized() * force_f)
-		#
-		# var center := (flail.global_position + player.global_position) * 0.5
-		# var want_player := 2 * center - get_global_mouse_position()
-		# player.apply_central_force((want_player - player.global_position).normalized() * force_p)
 
 	_apply_constaint()
 
@@ -70,7 +63,3 @@ func _apply_constaint() -> void:
 
 	player.apply_impulse(-impulse * p_bias)
 	flail.apply_impulse(impulse * (1 - p_bias))
-
-
-func _projection(of: Vector2, onto: Vector2) -> float:
-	return of.dot(onto) / onto.length()

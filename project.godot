@@ -52,6 +52,10 @@ window/stretch/mode="canvas_items"
 
 project/assembly_name="gamejam_bread_21"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-box2d/plugin.cfg")
+
 [file_customization]
 
 folder_colors={
@@ -118,6 +122,7 @@ debug_start_upgrade={
 
 [physics]
 
+2d/physics_engine="Box2D"
 2d/default_gravity_vector=Vector2(0, 0)
 
 [rendering]
@@ -125,3 +130,4 @@ debug_start_upgrade={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.4870211, 0.0003296475, 0.53405744, 1)
