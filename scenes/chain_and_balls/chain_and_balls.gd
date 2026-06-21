@@ -4,6 +4,9 @@ extends Node2D
 const _GROUNDED_FLAIL := preload("res://scenes/chain_and_balls/grounded_flail_ball.tscn")
 const GroundedFlail := preload("res://scenes/chain_and_balls/grounded_flail_ball.gd")
 
+const PLAYER_FLYING_TEXTURE: Texture2D = preload("res://assets/art/fly_1.png")
+const PLAYER_STANDING_TEXTURE: Texture2D = preload("res://assets/art/mr_cool.png")
+
 @export var force_p: float = 100.0
 @export var force_f: float = 100.0
 @export var damage: int = 50
@@ -16,6 +19,10 @@ var _last_grounded_flail: GroundedFlail
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var flail_hurt_box: Area2D = %HurtBox
 
+var player_frozen_state: bool = false
+
+@onready var player_sprite: Sprite2D = $Player/Sprite2D
+@onready var player_animation: AnimatedSprite2D = $Player/Sprite2D/AnimatedSprite2D
 
 static func get_instance() -> ChainAndBalls:
 	var cnb: ChainAndBalls = (Engine.get_main_loop() as SceneTree).get_first_node_in_group(&"chain_and_balls")
@@ -34,6 +41,13 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
+	player_sprite.global_rotation = 0
+
+	if player.position.x > flail.position.x:
+		player_sprite.flip_h = true
+	else:
+		player_sprite.flip_h = false
+
 	flail.freeze = Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)
 	var flail_frozen_delta := int(flail.freeze) - int(_last_grounded_flail != null)
 	player.freeze = Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT)
@@ -44,6 +58,15 @@ func _physics_process(_delta: float) -> void:
 	elif not player.freeze and flail.freeze:
 		flail.linear_velocity = Vector2.ZERO
 		player.apply_central_force((get_global_mouse_position() - player.global_position).normalized() * force_p)
+
+	if player.freeze:
+		player_sprite.texture = PLAYER_STANDING_TEXTURE
+		if not player_frozen_state:
+			player_frozen_state = true
+			player_animation.play()
+	elif not player.freeze:
+		player_sprite.texture = PLAYER_FLYING_TEXTURE
+		player_frozen_state = false
 
 	_apply_constaint()
 
@@ -119,3 +142,7 @@ func _on_flail_enemy_entered(enemy: Node2D) -> void:
 
 	enemy.health_component.damage(damage)
 	enemy.apply_knockback(flail.linear_velocity)
+
+func _hide_animation() -> void:
+	print("viu")
+	player_animation.hide()
