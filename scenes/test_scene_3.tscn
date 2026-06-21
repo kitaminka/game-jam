@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://b0n51pgglqvsh" path="res://resources/wave_enemy_entry.gd" id="4_xmfm2"]
 [ext_resource type="PackedScene" uid="uid://gbsgy7a03y4m" path="res://scenes/enemy/enemy.tscn" id="5_ihh67"]
 [ext_resource type="PackedScene" uid="uid://bqmaaklxptuwx" path="res://scenes/shooting_enemy/shooting_enemy.tscn" id="6_45k7r"]
+[ext_resource type="Texture2D" uid="uid://ckxmknddg0f0i" path="res://assets/art/tile_1.png" id="7_y2dlf"]
 
 [sub_resource type="Resource" id="Resource_rnaij"]
 script = ExtResource("4_xmfm2")
@@ -42,3 +43,15 @@ metadata/_custom_type_script = "uid://ddc45eylgdqsm"
 [node name="GameManager" parent="." unique_id=559716171 instance=ExtResource("2_svppf")]
 waves = Array[ExtResource("3_y2dlf")]([SubResource("Resource_svppf"), SubResource("Resource_y2dlf")])
 eternal_wave = SubResource("Resource_xmfm2")
+
+[node name="BG" type="Parallax2D" parent="." unique_id=504361412]
+z_index = -2
+repeat_size = Vector2(48, 48)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="BG" unique_id=2025996345]
+texture_repeat = 2
+texture = ExtResource("7_y2dlf")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 718.483, 452.101)

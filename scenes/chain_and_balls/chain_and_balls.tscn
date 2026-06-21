@@ -67,3 +67,8 @@ texture = ExtResource("5_m8ad4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1295743146]
 shape = SubResource("CircleShape2D_ew8pg")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=818417822]
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
