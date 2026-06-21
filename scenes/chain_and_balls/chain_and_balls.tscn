@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://6gkt5qcgg01x" path="res://assets/art/chain.png" id="2_4lu5f"]
 [ext_resource type="Texture2D" uid="uid://cofpnxpywrnwa" path="res://assets/art/balls.png" id="3_km36v"]
 [ext_resource type="PackedScene" uid="uid://dod8chnx3drsv" path="res://scenes/components/health_component/health_component.tscn" id="4_4lu5f"]
-[ext_resource type="Texture2D" uid="uid://clv14tk80ic6k" path="res://assets/art/chell_flying.png" id="5_grxb5"]
+[ext_resource type="Texture2D" uid="uid://vyepk6fqjo6p" path="res://assets/art/chell.png" id="5_grxb5"]
 [ext_resource type="Texture2D" uid="uid://dle3mwdxlc0vw" path="res://assets/art/boom_sheet.png" id="6_grxb5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5l1oh"]
@@ -114,6 +114,8 @@ metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=730560883]
 texture = ExtResource("5_grxb5")
+hframes = 3
+vframes = 2
 
 [node name="StaminaLabel" type="Label" parent="Player/Sprite2D" unique_id=1982435834]
 unique_name_in_owner = true

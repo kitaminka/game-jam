@@ -4,9 +4,6 @@ extends Node2D
 const _GROUNDED_FLAIL := preload("res://scenes/chain_and_balls/grounded_flail_ball.tscn")
 const GroundedFlail := preload("res://scenes/chain_and_balls/grounded_flail_ball.gd")
 
-const PLAYER_FLYING_TEXTURE: Texture2D = preload("res://assets/art/chell_flying.png")
-const PLAYER_STANDING_TEXTURE: Texture2D = preload("res://assets/art/chell_standing.png")
-
 @export var force_p: float = 100.0
 @export var force_f: float = 100.0
 @export var damage: int = 50
@@ -85,12 +82,12 @@ func _physics_process(delta: float) -> void:
 
 
 	if player.freeze:
-		player_sprite.texture = PLAYER_STANDING_TEXTURE
+		player_sprite.frame_coords.y = 1
 		if not _player_frozen_state:
 			_player_frozen_state = true
 			player_animation.play()
 	else:
-		player_sprite.texture = PLAYER_FLYING_TEXTURE
+		player_sprite.frame_coords.y = 0
 		_player_frozen_state = false
 
 	_apply_constaint()
@@ -160,6 +157,7 @@ func _apply_constaint() -> void:
 
 
 func _on_damaged(amount: int) -> void:
+	player_sprite.frame_coords.x = int(3 - health_component.health / (health_component.initial_health * (1.0/3.0)))
 	print("player took ", amount, " damage")
 
 
