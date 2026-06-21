@@ -208,6 +208,6 @@ func _udpate_nudity_state(_amount: int) -> void:
 		inst.linear_velocity = Vector2.UP * 100.0
 		inst.angular_velocity = randf_range(-TAU, TAU)
 		(inst.get_node("Sprite2D") as Sprite2D).frame = _prev_clothing_idx
-		add_child(inst)
+		add_child.call_deferred(inst)
 
 	_prev_clothing_idx = idx
