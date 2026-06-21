@@ -8,7 +8,7 @@ extends Node2D
 @onready var line_2d: Line2D = $Line2D
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	flail.freeze = Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)
 	player.freeze = Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT)
 
@@ -17,10 +17,7 @@ func _physics_process(delta: float) -> void:
 		flail.apply_central_force((get_global_mouse_position() - flail.global_position).normalized() * force_f)
 	elif not player.freeze and flail.freeze:
 		flail.linear_velocity = Vector2.ZERO
-		var want_player := 2 * flail.global_position - get_global_mouse_position()
-		want_player = get_global_mouse_position()
-		# want_player = get_global_mouse_position()
-		player.apply_central_force((want_player - player.global_position).normalized() * force_p)
+		player.apply_central_force((get_global_mouse_position() - player.global_position).normalized() * force_p)
 
 	_apply_constaint()
 
