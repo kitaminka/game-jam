@@ -78,14 +78,14 @@ func _generate_spawn_entries(wave: Wave) -> Array[SpawnEntry]:
 	)
 
 	while budget_left > 0:
-		var affordable_price_sum: int = 0
+		var affordable_weight_sum: float = 0
 		for e: WaveEnemyEntry in price_list_sorted:
 			if e.price > budget_left:
 				break
 			assert(e.price > 0)
-			affordable_price_sum += e.price
+			affordable_weight_sum += e.probability_weight
 
-		if affordable_price_sum == 0:
+		if affordable_weight_sum == 0:
 			break
 
 		var rand_num: float = randf_range(0, 1)
@@ -93,7 +93,7 @@ func _generate_spawn_entries(wave: Wave) -> Array[SpawnEntry]:
 		var selected: WaveEnemyEntry = null
 
 		for e: WaveEnemyEntry in price_list_sorted:
-			accum += e.price / float(affordable_price_sum)
+			accum += e.probability_weight / affordable_weight_sum
 			if accum >= rand_num:
 				selected = e
 				break
