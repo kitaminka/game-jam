@@ -43,13 +43,6 @@ texture = SubResource("AtlasTexture_5l1oh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1295743146]
 shape = SubResource("CircleShape2D_ew8pg")
 
-[node name="Joint" type="DampedSpringJoint2D" parent="." unique_id=1272387483]
-position = Vector2(275, 116)
-node_a = NodePath("../Flail")
-node_b = NodePath("../Player")
-rest_length = 50.0
-damping = 0.01
-
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1425165063]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=45500854]
