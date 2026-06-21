@@ -67,7 +67,6 @@ y_sort_enabled = true
 script = ExtResource("1_gnoq6")
 force_p = 553.573
 force_f = 500.0
-stamina_consumption = 0.0
 
 [node name="HealthComponent" parent="." unique_id=1186933908 instance=ExtResource("4_4lu5f")]
 
