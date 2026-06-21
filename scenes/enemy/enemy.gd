@@ -2,7 +2,7 @@ class_name Enemy
 extends CharacterBody2D
 
 
-@export var speed: float = 120.0
+@export var speed: float = 30
 @export var damage: int = 10
 @export var damage_tick_interval: float = 0.5
 @export var knockback_fading: float = 300.0

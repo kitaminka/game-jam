@@ -6,8 +6,9 @@ const _FLAIL := preload("res://scenes/flail/flail_ball.tscn")
 
 @export var speedup_delta: float = PI
 @export var default_flail_speed: float = TAU / 4
-@export var max_flail_levels: int = 8
-@export var flail_nested_length_ratio: float = 0.9
+@export var max_flail_levels: int = 4
+@export var flail_nested_length_ratio: float = 0.75
+@export var flail_nested_speed_ratio: float = 2
 @export var flail_initial_length: float = 100.0
 
 signal upgrade_done
@@ -180,7 +181,7 @@ func _do_add_flail(flail: FlailBall) -> void:
 	print(depth)
 	inst.parent = flail
 	inst.radius = flail_initial_length * (flail_nested_length_ratio ** (depth-1))
-	inst.rotation_speed = default_flail_speed * (randi_range(0, 1) * 2 - 1) * clampf(randfn(1, 0.9), 0.5, 1.5)
+	inst.rotation_speed = default_flail_speed * (flail_nested_speed_ratio ** (depth-1)) * (randi_range(0, 1) * 2 - 1) * clampf(randfn(1, 0.9), 0.5, 1.5)
 	inst.starting_rotation_angle = randf_range(0, TAU)
 
 	inst.ready.connect((
