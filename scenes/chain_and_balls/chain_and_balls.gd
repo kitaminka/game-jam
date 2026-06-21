@@ -118,4 +118,13 @@ func _on_flail_enemy_entered(enemy: Node2D) -> void:
 		return
 
 	enemy.health_component.damage(damage)
-	enemy.apply_knockback(flail.linear_velocity)
+	var k := flail.linear_velocity
+	enemy.apply_knockback(k.normalized() * _calc_knockback(k.length()))
+
+
+func _calc_knockback(velocity: float) -> float:
+	var extra := maxf(0, velocity - 300)
+	var rest := velocity - extra
+
+	prints(rest, extra)
+	return rest + extra ** 1.1

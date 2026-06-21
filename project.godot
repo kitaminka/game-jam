@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="pixelart_template"
-run/main_scene="uid://mlfopegdrvw6"
+run/main_scene="uid://2str612gqg4n"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://ptd0sa7mmdpi"
 
@@ -124,6 +124,7 @@ debug_start_upgrade={
 
 2d/physics_engine="Box2D"
 2d/default_gravity_vector=Vector2(0, 0)
+2d/default_linear_damp=0.0
 
 [rendering]
 
