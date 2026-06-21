@@ -6,6 +6,7 @@ const GroundedFlail := preload("res://scenes/chain_and_balls/grounded_flail_ball
 
 @export var force_p: float = 100.0
 @export var force_f: float = 100.0
+@export var damage: int = 50
 
 var _last_grounded_flail: GroundedFlail
 
@@ -13,6 +14,7 @@ var _last_grounded_flail: GroundedFlail
 @onready var player: RigidBody2D = $Player
 @onready var chain: Line2D = $Chain
 @onready var health_component: HealthComponent = $HealthComponent
+@onready var flail_hurt_box: Area2D = %HurtBox
 
 
 static func get_instance() -> ChainAndBalls:
@@ -22,6 +24,13 @@ static func get_instance() -> ChainAndBalls:
 		push_error("no cnb :(")
 
 	return cnb
+
+
+func _ready() -> void:
+	health_component.died.connect(_on_died)
+	health_component.damaged.connect(_on_damaged)
+	flail_hurt_box.body_entered.connect(_on_flail_enemy_entered)
+	flail_hurt_box.area_entered.connect(_on_flail_enemy_entered)
 
 
 func _physics_process(_delta: float) -> void:
@@ -95,3 +104,18 @@ func _apply_constaint() -> void:
 
 	player.apply_impulse(-impulse * p_bias)
 	flail.apply_impulse(impulse * (1 - p_bias))
+
+
+func _on_damaged(amount: int) -> void:
+	print("player took ", amount, " damage")
+
+
+func _on_died() -> void:
+	print("game over")
+
+func _on_flail_enemy_entered(enemy: Node2D) -> void:
+	if not enemy or not enemy.has_method("apply_knockback") or not enemy.get("health_component"):
+		return
+
+	enemy.health_component.damage(damage)
+	enemy.apply_knockback(flail.linear_velocity)

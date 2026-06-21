@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://cqaaiwkbm8f1t"]
-
-[ext_resource type="Script" uid="uid://buuegih5ba168" path="res://scenes/flail/flailset.gd" id="1_0mcmp"]
-
-[node name="Flailset" type="Node2D" unique_id=1886278426]
-script = ExtResource("1_0mcmp")

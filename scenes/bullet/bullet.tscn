@@ -6,6 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_83itf"]
 
 [node name="Bullet" type="Area2D" unique_id=1843918926]
+collision_layer = 2
 script = ExtResource("1_83itf")
 metadata/_edit_group_ = true
 

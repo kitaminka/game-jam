@@ -73,9 +73,7 @@ folder_colors={
 [global_group]
 
 settings_audio=""
-player="The player"
-flailball="Ball of the flail, used to discover them in upgrade UI."
-chain_and_balls=""
+chain_and_balls="The chain and the balls"
 
 [gui]
 
@@ -120,6 +118,7 @@ debug_start_upgrade={
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Enemy"
 2d_physics/layer_3="Obstacle"
+2d_physics/layer_4="Flail"
 
 [physics]
 

@@ -12,18 +12,24 @@ script = ExtResource("4_xmfm2")
 enemy_scene = ExtResource("5_ihh67")
 metadata/_custom_type_script = "uid://b0n51pgglqvsh"
 
+[sub_resource type="Resource" id="Resource_svppf"]
+script = ExtResource("3_y2dlf")
+price_list = Array[ExtResource("4_xmfm2")]([SubResource("Resource_rnaij")])
+budget = 50
+metadata/_custom_type_script = "uid://ddc45eylgdqsm"
+
 [sub_resource type="Resource" id="Resource_h3xc6"]
 script = ExtResource("4_xmfm2")
 enemy_scene = ExtResource("6_45k7r")
 price = 10
 metadata/_custom_type_script = "uid://b0n51pgglqvsh"
 
-[sub_resource type="Resource" id="Resource_s36qc"]
+[sub_resource type="Resource" id="Resource_y2dlf"]
 script = ExtResource("3_y2dlf")
 price_list = Array[ExtResource("4_xmfm2")]([SubResource("Resource_rnaij"), SubResource("Resource_h3xc6")])
 metadata/_custom_type_script = "uid://ddc45eylgdqsm"
 
-[sub_resource type="Resource" id="Resource_f4bkh"]
+[sub_resource type="Resource" id="Resource_xmfm2"]
 script = ExtResource("3_y2dlf")
 price_list = Array[ExtResource("4_xmfm2")]([SubResource("Resource_rnaij"), SubResource("Resource_h3xc6")])
 budget = 500
@@ -34,5 +40,5 @@ metadata/_custom_type_script = "uid://ddc45eylgdqsm"
 [node name="ChainAndBalls" parent="." unique_id=429461000 instance=ExtResource("1_wemst")]
 
 [node name="GameManager" parent="." unique_id=559716171 instance=ExtResource("2_svppf")]
-waves = Array[ExtResource("3_y2dlf")]([SubResource("Resource_s36qc")])
-eternal_wave = SubResource("Resource_f4bkh")
+waves = Array[ExtResource("3_y2dlf")]([SubResource("Resource_svppf"), SubResource("Resource_y2dlf")])
+eternal_wave = SubResource("Resource_xmfm2")
