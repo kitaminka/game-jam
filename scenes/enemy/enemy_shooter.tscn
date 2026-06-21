@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cfhttw32qu25g"]
+
+[ext_resource type="PackedScene" uid="uid://gbsgy7a03y4m" path="res://scenes/enemy/enemy.tscn" id="1_thi24"]
+[ext_resource type="PackedScene" uid="uid://fydhb1cxoad6" path="res://scenes/bullet/bullet.tscn" id="2_r31ym"]
+
+[node name="EnemyShooter" unique_id=1871860269 instance=ExtResource("1_thi24")]
+movement_enabled = true
+shooting_enabled = true
+shooting_scene = ExtResource("2_r31ym")

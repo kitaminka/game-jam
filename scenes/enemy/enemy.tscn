@@ -6,24 +6,17 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_883im"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_a3pup"]
-
 [node name="Enemy" type="CharacterBody2D" unique_id=1871860269]
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("1_4a83h")
+knockback_enabled = true
 
 [node name="HealthComponent" parent="." unique_id=1186933908 instance=ExtResource("2_40wdo")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1280122558]
-shape = SubResource("CircleShape2D_883im")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1675653022]
 scale = Vector2(0.03, 0.03)
 texture = ExtResource("2_a3pup")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=742393769]
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2056968670]
-shape = SubResource("CircleShape2D_a3pup")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1280122558]
+shape = SubResource("CircleShape2D_883im")

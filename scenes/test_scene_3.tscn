@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://bwust5e26nd8q" path="res://scenes/game_manager/game_manager.tscn" id="2_svppf"]
 [ext_resource type="Script" uid="uid://ddc45eylgdqsm" path="res://resources/wave.gd" id="3_y2dlf"]
 [ext_resource type="Script" uid="uid://b0n51pgglqvsh" path="res://resources/wave_enemy_entry.gd" id="4_xmfm2"]
-[ext_resource type="PackedScene" uid="uid://gbsgy7a03y4m" path="res://scenes/enemy/enemy.tscn" id="5_ihh67"]
-[ext_resource type="PackedScene" uid="uid://bqmaaklxptuwx" path="res://scenes/shooting_enemy/shooting_enemy.tscn" id="6_45k7r"]
+[ext_resource type="PackedScene" uid="uid://v7lqtvnaboqq" path="res://scenes/enemy/enemy_melee.tscn" id="5_ihh67"]
+[ext_resource type="PackedScene" uid="uid://cfhttw32qu25g" path="res://scenes/enemy/enemy_shooter.tscn" id="6_y2dlf"]
 [ext_resource type="Texture2D" uid="uid://bcsv335crybqa" path="res://assets/art/tile_2.png" id="7_y2dlf"]
 
 [sub_resource type="Resource" id="Resource_rnaij"]
@@ -21,7 +21,7 @@ metadata/_custom_type_script = "uid://ddc45eylgdqsm"
 
 [sub_resource type="Resource" id="Resource_h3xc6"]
 script = ExtResource("4_xmfm2")
-enemy_scene = ExtResource("6_45k7r")
+enemy_scene = ExtResource("6_y2dlf")
 price = 10
 metadata/_custom_type_script = "uid://b0n51pgglqvsh"
 

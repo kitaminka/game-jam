@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://v7lqtvnaboqq"]
+
+[ext_resource type="PackedScene" uid="uid://gbsgy7a03y4m" path="res://scenes/enemy/enemy.tscn" id="1_8divv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8divv"]
+radius = 13.0
+
+[node name="EnemyMelee" unique_id=1871860269 node_paths=PackedStringArray("melee_hurtbox") instance=ExtResource("1_8divv")]
+movement_enabled = true
+movement_stop_distance = 7.0
+melee_enabled = true
+melee_hurtbox = NodePath("HurtBox")
+
+[node name="HurtBox" type="Area2D" parent="." index="3" unique_id=1594991989]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" index="0" unique_id=486032791]
+shape = SubResource("CircleShape2D_8divv")
+debug_color = Color(0.9049976, 0.2585169, 0.42444482, 0.41960785)
