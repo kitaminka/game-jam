@@ -115,6 +115,14 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=730560883]
 texture = ExtResource("5_m8ad4")
 
+[node name="StaminaLabel" type="Label" parent="Player/Sprite2D" unique_id=1982435834]
+unique_name_in_owner = true
+offset_left = -16.0
+offset_top = -37.0
+offset_right = 24.0
+offset_bottom = -23.0
+text = "1.0"
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/Sprite2D" unique_id=1546953943]
 z_index = -1
 position = Vector2(0, 16)

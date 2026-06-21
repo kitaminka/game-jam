@@ -11,15 +11,24 @@ const PLAYER_STANDING_TEXTURE: Texture2D = preload("res://assets/art/mr_cool.png
 @export var force_f: float = 100.0
 @export var damage: int = 50
 
+@export_group("Stamina", "stamina")
+@export var stamina_consumption: float = 0.3
+@export var stamina_regeneration: float = 0.7
+
+## Whether to consume stamina when both are flying
+@export var stamina_on_flight: bool = false
+
 var _last_grounded_flail: GroundedFlail
+var _player_frozen_state: bool = false
+
+var _stamina: float = 1.0
+var _stamina_ran_out: bool = false
 
 @onready var flail: RigidBody2D = $Flail
 @onready var player: RigidBody2D = $Player
 @onready var chain: Line2D = $Chain
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var flail_hurt_box: Area2D = %HurtBox
-
-var player_frozen_state: bool = false
 
 @onready var player_sprite: Sprite2D = $Player/Sprite2D
 @onready var player_animation: AnimatedSprite2D = $Player/Sprite2D/AnimatedSprite2D
@@ -40,7 +49,7 @@ func _ready() -> void:
 	flail_hurt_box.area_entered.connect(_on_flail_enemy_entered)
 
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	player_sprite.global_rotation = 0
 
 	if player.position.x > flail.position.x:
@@ -48,9 +57,13 @@ func _physics_process(_delta: float) -> void:
 	else:
 		player_sprite.flip_h = false
 
-	flail.freeze = Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)
+	var inp_flail := Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)
+	flail.freeze = inp_flail or _stamina <= 0.0 or _stamina_ran_out
 	var flail_frozen_delta := int(flail.freeze) - int(_last_grounded_flail != null)
 	player.freeze = Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT)
+
+	if inp_flail:
+		_stamina_ran_out = false
 
 	if player.freeze and not flail.freeze:
 		player.linear_velocity = Vector2.ZERO
@@ -59,14 +72,24 @@ func _physics_process(_delta: float) -> void:
 		flail.linear_velocity = Vector2.ZERO
 		player.apply_central_force((get_global_mouse_position() - player.global_position).normalized() * force_p)
 
+	if not flail.freeze and (not stamina_on_flight or player.freeze):
+		_stamina -= stamina_consumption * delta
+	else:
+		_stamina += stamina_regeneration * delta
+
+	_stamina = clampf(_stamina, 0, 1)
+	if _stamina <= 0:
+		_stamina_ran_out = true
+
+
 	if player.freeze:
 		player_sprite.texture = PLAYER_STANDING_TEXTURE
-		if not player_frozen_state:
-			player_frozen_state = true
+		if not _player_frozen_state:
+			_player_frozen_state = true
 			player_animation.play()
-	elif not player.freeze:
+	else:
 		player_sprite.texture = PLAYER_FLYING_TEXTURE
-		player_frozen_state = false
+		_player_frozen_state = false
 
 	_apply_constaint()
 
@@ -92,6 +115,9 @@ func _physics_process(_delta: float) -> void:
 				t.tween_callback(_last_grounded_flail.queue_free)
 				_last_grounded_flail = null
 			flail.show()
+
+
+	(%StaminaLabel as Label).text = "%.2f" % _stamina
 
 
 func _apply_constaint() -> void:
