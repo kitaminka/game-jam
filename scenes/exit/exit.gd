@@ -10,7 +10,7 @@ var _enemies_left: int = 0
 
 func _ready() -> void:
 	if win_condition_enemies:
-		for enemy: Enemy in get_tree().get_nodes_in_group(&"enemy"):
+		for enemy in get_tree().get_nodes_in_group(&"enemy"):
 			enemy.got_lobotomized.connect(_on_enemy_death, CONNECT_ONE_SHOT)
 			_enemies_left += 1
 
