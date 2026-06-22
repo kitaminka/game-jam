@@ -8,19 +8,16 @@ const GroundedFlail := preload("res://scenes/chain_and_balls/grounded_flail_ball
 @export var force_f: float = 100.0
 @export var damage: int = 50
 
-@export_group("Stamina", "stamina")
-@export var stamina_enabled: bool = false
-@export var stamina_consumption: float = 0.3
-@export var stamina_regeneration: float = 0.7
-
 ## Whether to consume stamina when both are flying
 @export var stamina_on_flight: bool = false
+
+@export_flags_2d_physics var hole_mask: int = 16
+@export var hole_check_shape: Shape2D
+@export var min_hole_speed: float = 20.0
 
 var _last_grounded_flail: GroundedFlail
 var _player_frozen_state: bool = false
 
-var _stamina: float = 1.0
-var _stamina_ran_out: bool = false
 var _prev_clothing_idx: int = 0
 
 @onready var flail: RigidBody2D = $Flail
@@ -51,7 +48,7 @@ func _ready() -> void:
 	flail_hurt_box.area_entered.connect(_on_flail_enemy_entered)
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	player_sprite.global_rotation = 0
 
 	if player.position.x > flail.position.x:
@@ -59,13 +56,12 @@ func _physics_process(delta: float) -> void:
 	else:
 		player_sprite.flip_h = false
 
-	var inp_flail := Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)
-	flail.freeze = inp_flail or (stamina_enabled and (_stamina <= 0.0 or _stamina_ran_out))
-	var flail_frozen_delta := int(flail.freeze) - int(_last_grounded_flail != null)
-	player.freeze = Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT)
+	var p_over_hole := _is_over_hole(player.global_position)
+	var f_over_hole := _is_over_hole(flail.global_position)
 
-	if inp_flail:
-		_stamina_ran_out = false
+	flail.freeze = Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and not f_over_hole
+	var flail_frozen_delta := int(flail.freeze) - int(_last_grounded_flail != null)
+	player.freeze = Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT) and not p_over_hole
 
 	if player.freeze and not flail.freeze:
 		player.linear_velocity = Vector2.ZERO
@@ -73,17 +69,6 @@ func _physics_process(delta: float) -> void:
 	elif not player.freeze and flail.freeze:
 		flail.linear_velocity = Vector2.ZERO
 		player.apply_central_force((get_global_mouse_position() - player.global_position).normalized() * force_p)
-
-	if stamina_enabled:
-		if not flail.freeze and (not stamina_on_flight or player.freeze):
-			_stamina -= stamina_consumption * delta
-		else:
-			_stamina += stamina_regeneration * delta
-
-		_stamina = clampf(_stamina, 0, 1)
-		if _stamina <= 0:
-			_stamina_ran_out = true
-
 
 	if player.freeze:
 		player_sprite.frame_coords.y = 1
@@ -120,9 +105,11 @@ func _physics_process(delta: float) -> void:
 			flail.show()
 
 
-	var stamina_label := %StaminaLabel as Label
-	stamina_label.visible = stamina_enabled
-	stamina_label.text = "%.2f" % _stamina
+	if (
+		p_over_hole and f_over_hole
+		and flail.linear_velocity.length_squared() + player.linear_velocity.length_squared() < min_hole_speed*min_hole_speed
+	):
+		_fall_into_a_hole()
 
 
 func _apply_constaint() -> void:
@@ -211,3 +198,18 @@ func _udpate_nudity_state(_amount: int) -> void:
 		add_child.call_deferred(inst)
 
 	_prev_clothing_idx = idx
+
+
+func _is_over_hole(pos: Vector2) -> bool:
+	var params := PhysicsShapeQueryParameters2D.new()
+	params.collide_with_areas = true
+	params.collide_with_bodies = true
+	params.collision_mask = hole_mask
+	params.transform.origin = pos
+	params.shape = hole_check_shape
+	return not get_world_2d().direct_space_state.intersect_shape(params, 1).is_empty()
+
+
+func _fall_into_a_hole() -> void:
+	health_component.damage.call_deferred(999999999)
+	hide()

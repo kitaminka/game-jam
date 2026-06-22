@@ -29,6 +29,7 @@ func damage(dmg: int) -> void:
 		heal(-dmg)
 		return
 	health -= dmg
+	health = maxi(health, 0)
 	if is_dead(): died.emit()
 	else: damaged.emit(dmg)
 

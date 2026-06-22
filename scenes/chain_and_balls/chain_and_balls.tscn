@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dle3mwdxlc0vw" path="res://assets/art/boom_sheet.png" id="6_grxb5"]
 [ext_resource type="Texture2D" uid="uid://ckrfbblmtvt6i" path="res://assets/art/shaddow.png" id="7_1pg28"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_1pg28"]
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5l1oh"]
 bounce = 0.9
 
@@ -66,8 +68,10 @@ animations = [{
 [node name="ChainAndBalls" type="Node2D" unique_id=429461000 groups=["chain_and_balls"]]
 y_sort_enabled = true
 script = ExtResource("1_gnoq6")
-force_p = 553.573
+force_p = 571.315
 force_f = 500.0
+hole_check_shape = SubResource("CircleShape2D_1pg28")
+min_hole_speed = 50.0
 
 [node name="HealthComponent" parent="." unique_id=1186933908 instance=ExtResource("4_4lu5f")]
 
@@ -110,21 +114,13 @@ collision_mask = 13
 physics_material_override = SubResource("PhysicsMaterial_m8ad4")
 continuous_cd = 2
 linear_damp_mode = 1
-linear_damp = 0.5
+linear_damp = 0.6
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=730560883]
 texture = ExtResource("5_grxb5")
 hframes = 3
 vframes = 2
-
-[node name="StaminaLabel" type="Label" parent="Player/Sprite2D" unique_id=1982435834]
-unique_name_in_owner = true
-offset_left = -16.0
-offset_top = -37.0
-offset_right = 24.0
-offset_bottom = -23.0
-text = "1.0"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/Sprite2D" unique_id=1546953943]
 z_index = -1
