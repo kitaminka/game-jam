@@ -6,4 +6,5 @@
 script = ExtResource("1_wqu6y")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=60792452]
+volume_db = 10.0
 bus = &"SFX"

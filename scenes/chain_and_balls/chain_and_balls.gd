@@ -82,7 +82,8 @@ func _physics_process(_delta: float) -> void:
 		if not _player_frozen_state:
 			_player_frozen_state = true
 			player_animation.play()
-			sfx_player.play_sound("land")
+			if not _was_lobotomized:
+				sfx_player.play_sound("land")
 	else:
 		player_sprite.frame_coords.y = 0
 		_player_frozen_state = false
@@ -102,7 +103,8 @@ func _physics_process(_delta: float) -> void:
 			flail.hide()
 			add_child(_last_grounded_flail)
 			_last_grounded_flail.global_position = flail.global_position
-			sfx_player.play_sound("land")
+			if not _was_lobotomized:
+				sfx_player.play_sound("land")
 		-1: # just released
 			if is_instance_valid(_last_grounded_flail):
 				_last_grounded_flail.make_hollow()
