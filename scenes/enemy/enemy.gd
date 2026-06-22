@@ -38,6 +38,7 @@ var _knockback_velocity: Vector2 #leftover velocity after
 @onready var highlight_rect: ColorRect = $Sprite2D/ColorRect
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hole_detector: Area2D = $HoleDetector
+@onready var navigation: NavigationAgent2D = $NavigationAgent2D
 
 var _initial_sprite_offset: Vector2
 var _initial_marker_offset: Vector2
@@ -58,6 +59,9 @@ func _ready() -> void:
 	hole_detector.body_entered.connect(do_fall, CONNECT_ONE_SHOT)
 	hole_detector.area_entered.connect(do_fall, CONNECT_ONE_SHOT)
 
+	navigation.max_speed = movement_speed
+	navigation.velocity_computed.connect(_on_velocity_computed)
+
 
 func _physics_process(delta: float) -> void:
 	var dist2 := cnb.player.global_position.distance_squared_to(global_position)
@@ -65,18 +69,21 @@ func _physics_process(delta: float) -> void:
 	velocity = Vector2.ZERO
 
 	if movement_enabled and not _was_lobotomized:
-		var direction: Vector2 = (cnb.player.global_position - global_position).normalized()
-		if dist2 >= movement_stop_distance*movement_stop_distance:
-			velocity += direction * movement_speed
+		navigation.target_position = cnb.player.global_position
+		var want := navigation.get_next_path_position()
+		if global_position.distance_squared_to(want) >= movement_stop_distance*movement_stop_distance:
+			velocity += global_position.direction_to(want) * movement_speed
 
 	if knockback_enabled:
-		velocity += _knockback_velocity
 		_knockback_velocity = _knockback_velocity.move_toward(Vector2.ZERO, knockback_fading * delta)
 
-	move_and_slide()
+	# this calls move and slide implicitly through _on_velocity_computed
+	navigation.velocity = velocity
 
 	if not _was_lobotomized:
-		sprite.flip_h = cnb.player.global_position.x < global_position.x
+		var s := signf(navigation.get_next_path_position().x - global_position.x)
+
+		sprite.flip_h = s < 0
 		if sprite.flip_h:
 			sprite.offset = _initial_sprite_offset * Vector2(-1, 1)
 		else:
@@ -117,9 +124,9 @@ func _physics_process(delta: float) -> void:
 		_shooting_cooldown = maxf(_shooting_cooldown, 0.0)
 
 
-## Public function, API expected by chain & balls
-func apply_knockback(v: Vector2) -> void:
-	_knockback_velocity += v
+func _on_velocity_computed(vel: Vector2) -> void:
+	velocity = vel + _knockback_velocity
+	move_and_slide()
 
 
 func _on_damaged(_amount: float) -> void:
@@ -166,3 +173,8 @@ func _fall_into_a_hole() -> void:
 
 func _rand_sign() -> float:
 	return float(randi_range(0, 1) * 2 - 1)
+
+
+## Public function, API expected by chain & balls
+func apply_knockback(v: Vector2) -> void:
+	_knockback_velocity += v

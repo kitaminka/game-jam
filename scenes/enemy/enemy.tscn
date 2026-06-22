@@ -58,6 +58,12 @@ collision_mask = 6
 script = ExtResource("1_4a83h")
 knockback_enabled = true
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1583476312]
+path_desired_distance = 10.0
+path_metadata_flags = 0
+avoidance_enabled = true
+radius = 11.0
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1884903029]
 libraries/ = SubResource("AnimationLibrary_tjssy")
 autoplay = &"idle"
