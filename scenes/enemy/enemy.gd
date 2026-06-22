@@ -32,7 +32,13 @@ var _shooting_cooldown: float = 0.0
 @export_group("Knockback", "knockback")
 @export_custom(PROPERTY_HINT_GROUP_ENABLE, "") var knockback_enabled: bool = false
 @export var knockback_fading: float = 300.0
+@export var knockback_multiplier: float = 1.0
 var _knockback_velocity: Vector2 #leftover velocity after
+
+
+@export_group("Armour", "armour")
+@export_custom(PROPERTY_HINT_GROUP_ENABLE, "") var armour_enabled: bool = false
+@export var armour_efficiency: float = 0.9
 
 
 @onready var cnb := ChainAndBalls.get_instance()
@@ -192,4 +198,15 @@ func _rand_sign() -> float:
 
 ## Public function, API expected by chain & balls
 func apply_knockback(v: Vector2) -> void:
-	_knockback_velocity += v
+	_knockback_velocity += v * knockback_multiplier
+
+
+func apply_armour(r: RigidBody2D, _knockback: Vector2) -> void:
+	if not armour_enabled:
+		return
+
+	print("armour!")
+	var dir := global_position.direction_to(r.global_position)
+	var c := r.linear_velocity.project(dir)
+	r.apply_central_impulse(-(1 + armour_efficiency) * c)
+	r.apply_torque_impulse(randf_range(-PI, PI))

@@ -162,12 +162,16 @@ func _on_flail_enemy_entered(enemy: Node2D) -> void:
 	if flail.freeze:
 		return
 
-	if not enemy or not enemy.has_method("apply_knockback") or not enemy.get("health_component"):
-		return
+	var knockback := flail.linear_velocity.normalized() * _calc_knockback(flail.linear_velocity.length())
+	if enemy.has_method("apply_knockback"):
+		enemy.apply_knockback(knockback)
 
-	enemy.health_component.damage(damage)
-	var k := flail.linear_velocity
-	enemy.apply_knockback(k.normalized() * _calc_knockback(k.length()))
+	if enemy.has_method("apply_armour"):
+		enemy.apply_armour(flail, knockback)
+
+	var hc := enemy.get("health_component") as HealthComponent
+	if is_instance_valid(hc):
+		hc.damage(damage)
 
 
 func _calc_knockback(velocity: float) -> float:
