@@ -20,7 +20,7 @@ func _ready() -> void:
 		add_child(player)
 
 
-# returns the stream selected to play
+# returns the played audio stream
 func play_stream_from(key: String) -> AudioStream:
 	if key not in audio_streams:
 		push_error("unknown key: '%s'" % key)
@@ -29,7 +29,5 @@ func play_stream_from(key: String) -> AudioStream:
 	var player := players[key]
 
 	player.play()
-
-	print("MYTEST2")
 
 	return audio_streams[key]
