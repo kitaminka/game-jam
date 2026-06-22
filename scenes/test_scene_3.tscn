@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://v7lqtvnaboqq" path="res://scenes/enemy/caveman_club.tscn" id="5_ihh67"]
 [ext_resource type="Texture2D" uid="uid://bcsv335crybqa" path="res://assets/art/tile_2.png" id="7_y2dlf"]
 [ext_resource type="PackedScene" uid="uid://doh5v2chquosb" path="res://scenes/audio/gameplay_audio_player/gameplay_audio_player.tscn" id="8_45k7r"]
-[ext_resource type="AudioStream" uid="uid://dspyaensqoboj" path="res://assets/audio/music/main_preloop_w_pause.wav" id="9_vk42m"]
 [ext_resource type="PackedScene" uid="uid://1meomxvyd37m" path="res://scenes/enemy/caveman_spear.tscn" id="9_ihh67"]
+[ext_resource type="AudioStream" uid="uid://dspyaensqoboj" path="res://assets/audio/music/main_preloop_w_pause.wav" id="9_vk42m"]
 [ext_resource type="AudioStream" uid="uid://dsayevgimoglo" path="res://assets/audio/music/main_loop.wav" id="10_vk42m"]
 [ext_resource type="PackedScene" uid="uid://cav0jmryusucx" path="res://ui/menus/pause_menu/pause_menu.tscn" id="11_f4bkh"]
 [ext_resource type="Texture2D" uid="uid://cge51wr7m3del" path="res://assets/art/hole_tilemap.png" id="12_vk42m"]
@@ -136,6 +136,7 @@ sources/0 = SubResource("TileSetAtlasSource_wrc5m")
 [node name="TestScene3" type="Node2D" unique_id=1835333024]
 
 [node name="ChainAndBalls" parent="." unique_id=429461000 instance=ExtResource("1_wemst")]
+position = Vector2(85, 230)
 
 [node name="BG" type="Parallax2D" parent="." unique_id=504361412]
 z_index = -100

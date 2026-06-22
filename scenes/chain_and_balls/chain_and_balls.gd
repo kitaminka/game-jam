@@ -99,9 +99,9 @@ func _physics_process(_delta: float) -> void:
 			if is_instance_valid(_last_grounded_flail):
 				_last_grounded_flail.queue_free()
 			_last_grounded_flail = _GROUNDED_FLAIL.instantiate()
-			_last_grounded_flail.global_position = flail.global_position
 			flail.hide()
 			add_child(_last_grounded_flail)
+			_last_grounded_flail.global_position = flail.global_position
 			sfx_player.play_sound("land")
 		-1: # just released
 			if is_instance_valid(_last_grounded_flail):
