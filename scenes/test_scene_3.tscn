@@ -79,3 +79,18 @@ bus = &"Music"
 loop_stream = ExtResource("10_vk42m")
 
 [node name="PauseMenu" parent="." unique_id=840180984 instance=ExtResource("11_f4bkh")]
+
+[node name="EnemyMelee" parent="." unique_id=1871860269 instance=ExtResource("5_ihh67")]
+position = Vector2(58, -39)
+
+[node name="EnemyMelee2" parent="." unique_id=1315949371 instance=ExtResource("5_ihh67")]
+position = Vector2(55, -5)
+
+[node name="EnemyMelee3" parent="." unique_id=1359170212 instance=ExtResource("5_ihh67")]
+position = Vector2(92, -7)
+
+[node name="EnemyMelee4" parent="." unique_id=670065445 instance=ExtResource("5_ihh67")]
+position = Vector2(98, -40)
+
+[node name="EnemyMelee5" parent="." unique_id=12109904 instance=ExtResource("5_ihh67")]
+position = Vector2(98, 32)

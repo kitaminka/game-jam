@@ -37,6 +37,7 @@ var _knockback_velocity: Vector2 #leftover velocity after
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var highlight_rect: ColorRect = $Sprite2D/ColorRect
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var _initial_sprite_offset: Vector2
 var _initial_marker_offset: Vector2
@@ -48,6 +49,8 @@ func _ready() -> void:
 	_initial_sprite_offset = sprite.offset
 	if is_instance_valid(shooting_marker):
 		_initial_marker_offset = shooting_marker.position
+
+	_randomize_animation()
 
 
 func _physics_process(delta: float) -> void:
@@ -116,3 +119,8 @@ func apply_knockback(v: Vector2) -> void:
 func _on_damaged(_amount: float) -> void:
 	var t := highlight_rect.create_tween().chain()
 	t.tween_property(highlight_rect, "color:a", 0, 0.125).from(0.75)
+
+
+func _randomize_animation() -> void:
+	animation_player.speed_scale = clampf(randfn(1, 0.2), 0.5, 1.5)
+	animation_player.seek(randf_range(0, animation_player.current_animation_length))
