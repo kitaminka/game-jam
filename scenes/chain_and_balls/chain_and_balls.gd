@@ -58,7 +58,7 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	player_sprite.global_rotation = 0
 
-	if player.position.x > flail.position.x:
+	if player.global_position.x > flail.global_position.x:
 		player_sprite.flip_h = true
 	else:
 		player_sprite.flip_h = false
