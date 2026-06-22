@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://bwust5e26nd8q"]
-
-[ext_resource type="Script" uid="uid://cagct1tdxfty" path="res://scenes/game_manager/game_manager.gd" id="1_0drbn"]
-
-[node name="GameManager" type="Node2D" unique_id=1386249361]
-y_sort_enabled = true
-script = ExtResource("1_0drbn")
-enemy_cap = 256

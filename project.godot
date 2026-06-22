@@ -28,6 +28,7 @@ buses/default_bus_layout="uid://dlptv1a5o3dwc"
 Transition="*res://ui/transition/transition.tscn"
 SettingsCfg="*res://ui/settings/settings_cfg.gd"
 Persistence="*uid://cxsrp3xinbvkf"
+GameManager="*uid://cagct1tdxfty"
 
 [debug]
 

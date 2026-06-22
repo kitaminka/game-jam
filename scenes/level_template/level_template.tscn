@@ -43,7 +43,7 @@ loop_stream = ExtResource("3_frmvx")
 visible = false
 
 [node name="Floor" type="TileMapLayer" parent="." unique_id=785946752]
-z_index = -1
+z_index = -100
 texture_repeat = 1
 tile_set = SubResource("TileSet_ceqky")
 
