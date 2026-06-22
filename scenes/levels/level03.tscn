@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://1meomxvyd37m" path="res://scenes/enemy/caveman_spear.tscn" id="3_2e2pm"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ngux6"]
-vertices = PackedVector2Array(192, 116, -308, 116, -308, -116, 192, -116, 1508, 116, 304, 116, 304, -116, 1508, -116)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-431, -244, -404, 219, 1716, 204, 1710, -204)])
+vertices = PackedVector2Array(1164, -103.71875, 1164, -276, 1652, -276, 1652, 276, 1164, 276, 1164, 103.71875, 1144.2813, -84, 1144.2813, 84, 583.71875, -84, 967.71875, 84, 396, -103.71875, 948, 103.71875, 760.28125, 84, 376.28125, -84, 948, 276, 780, 276, 780, 103.71875, -84, 84, -84, -84, 396, -276, 564, -276, 564, -103.71875)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5), PackedInt32Array(6, 0, 3, 5, 7), PackedInt32Array(8, 6, 7, 9), PackedInt32Array(10, 8, 9, 11, 12, 13), PackedInt32Array(11, 14, 15, 16), PackedInt32Array(12, 17, 18, 13), PackedInt32Array(10, 19, 20, 21), PackedInt32Array(10, 21, 8), PackedInt32Array(12, 11, 16)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-400, -392, -400, 336, 1768, 344, 1760, -360)])
 source_geometry_mode = 2
 agent_radius = 20.0
 

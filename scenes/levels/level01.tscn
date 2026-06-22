@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://bjjj5yrb1tvg6"]
+[gd_scene format=4 uid="uid://q1iexq72mpdt"]
 
 [ext_resource type="PackedScene" uid="uid://flppggcvx0w1" path="res://scenes/level_template/level_template.tscn" id="1_3n7h2"]
 
@@ -9,7 +9,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-431, -244, -404, 219, 
 source_geometry_mode = 2
 agent_radius = 20.0
 
-[node name="LevelTemplate" unique_id=669825193 instance=ExtResource("1_3n7h2")]
+[node name="LevelTemplate2" unique_id=669825193 instance=ExtResource("1_3n7h2")]
 
 [node name="Floor" parent="." index="2" unique_id=785946752]
 z_as_relative = false
