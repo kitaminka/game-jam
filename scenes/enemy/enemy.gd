@@ -190,7 +190,8 @@ func _on_death() -> void:
 func _fall_into_a_hole() -> void:
 	sfx_player.play_sound("fall_into_a_hole")
 
-	_labotomize()
+	if not _was_lobotomized:
+		_labotomize()
 
 	var t := create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	t.tween_property(self, "modulate:a", 0.0, 1)
