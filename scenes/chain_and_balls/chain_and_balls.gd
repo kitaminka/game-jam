@@ -6,7 +6,9 @@ signal got_lobotomized
 
 const _GROUNDED_FLAIL := preload("res://scenes/chain_and_balls/grounded_flail_ball.tscn")
 const GroundedFlail := preload("res://scenes/chain_and_balls/grounded_flail_ball.gd")
+
 const _FAST_HIT_EFFECT := preload("res://scenes/chain_and_balls/fast_hit_effect.tscn")
+const _LAND_EFFECT := preload("res://scenes/chain_and_balls/land_effect.tscn")
 
 enum FlailVelocityBucket {SLOW, NORMAL, FAST}
 
@@ -40,7 +42,6 @@ var _was_lobotomized: bool = false
 @onready var flail_hurt_box: Area2D = %HurtBox
 
 @onready var player_sprite: Sprite2D = $Player/Sprite2D
-@onready var player_animation: AnimatedSprite2D = $Player/Sprite2D/AnimatedSprite2D
 
 @onready var camera: Camera2D = %Camera2D
 
@@ -90,7 +91,9 @@ func _physics_process(_delta: float) -> void:
 		player_sprite.frame_coords.y = 1
 		if not _player_frozen_state:
 			_player_frozen_state = true
-			player_animation.play()
+			var inst := _LAND_EFFECT.instantiate()
+			add_child(inst)
+			inst.global_position = player.global_position
 			if not _was_lobotomized:
 				sfx_player.play_sound("land")
 	else:
@@ -248,11 +251,6 @@ func _calc_knockback(velocity: float) -> float:
 	var rest := velocity - extra
 
 	return rest + extra ** 1.1
-
-
-func _hide_animation() -> void:
-	print("viu")
-	player_animation.hide()
 
 
 func _udpate_nudity_state(_amount: int) -> void:

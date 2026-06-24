@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://cofpnxpywrnwa" path="res://assets/art/balls.png" id="3_km36v"]
 [ext_resource type="PackedScene" uid="uid://dod8chnx3drsv" path="res://scenes/components/health_component/health_component.tscn" id="4_4lu5f"]
 [ext_resource type="Texture2D" uid="uid://vyepk6fqjo6p" path="res://assets/art/chell.png" id="5_grxb5"]
-[ext_resource type="Texture2D" uid="uid://dle3mwdxlc0vw" path="res://assets/art/boom_sheet.png" id="6_grxb5"]
 [ext_resource type="Texture2D" uid="uid://ckrfbblmtvt6i" path="res://assets/art/shaddow.png" id="7_1pg28"]
 [ext_resource type="PackedScene" uid="uid://dw4q7rpb4mh6h" path="res://scenes/audio/sfx_player/sfx_player.tscn" id="8_djf8j"]
 [ext_resource type="AudioStream" uid="uid://dsjoi263x6dur" path="res://assets/audio/sfx/player_fall/player_fall_1.wav" id="9_b4mhr"]
@@ -34,48 +33,6 @@ radius = 7.0
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_m8ad4"]
 bounce = 0.7
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1pg28"]
-atlas = ExtResource("6_grxb5")
-region = Rect2(0, 32, 66, 11)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_drrha"]
-atlas = ExtResource("6_grxb5")
-region = Rect2(132, 32, 66, 11)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u2d1n"]
-atlas = ExtResource("6_grxb5")
-region = Rect2(198, 32, 66, 11)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d3hab"]
-atlas = ExtResource("6_grxb5")
-region = Rect2(330, 32, 66, 11)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_djf8j"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1pg28")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_drrha")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u2d1n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d3hab")
-}, {
-"duration": 1.0,
-"texture": null
-}],
-"loop": false,
-"name": &"default",
-"speed": 10.0
-}]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_vph8e"]
 streams_count = 3
@@ -156,12 +113,6 @@ metadata/_edit_group_ = true
 texture = ExtResource("5_grxb5")
 hframes = 3
 vframes = 2
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/Sprite2D" unique_id=1546953943]
-modulate = Color(1, 0.92941177, 0.7019608, 0.6509804)
-z_index = -1
-position = Vector2(0, 16)
-sprite_frames = SubResource("SpriteFrames_djf8j")
 
 [node name="Shadow" type="Sprite2D" parent="Player/Sprite2D" unique_id=1410988615]
 modulate = Color(0.105882354, 0.105882354, 0.105882354, 0.46666667)

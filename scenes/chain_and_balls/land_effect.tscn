@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://bjuyl4rd0730l"]
+
+[ext_resource type="Texture2D" uid="uid://dle3mwdxlc0vw" path="res://assets/art/boom_sheet.png" id="1_6ned2"]
+[ext_resource type="Script" uid="uid://dtceh1lpd6rx3" path="res://scenes/chain_and_balls/land_effect.gd" id="2_ipson"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pg28"]
+atlas = ExtResource("1_6ned2")
+region = Rect2(0, 32, 66, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drrha"]
+atlas = ExtResource("1_6ned2")
+region = Rect2(132, 32, 66, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2d1n"]
+atlas = ExtResource("1_6ned2")
+region = Rect2(198, 32, 66, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3hab"]
+atlas = ExtResource("1_6ned2")
+region = Rect2(330, 32, 66, 11)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_djf8j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1pg28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_drrha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2d1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3hab")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="LandEffect" type="AnimatedSprite2D" unique_id=1613308049]
+modulate = Color(1, 0.92941177, 0.7019608, 0.6509804)
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_djf8j")
+autoplay = "default"
+frame = 5
+frame_progress = 1.0
+offset = Vector2(0, 15)
+script = ExtResource("2_ipson")
