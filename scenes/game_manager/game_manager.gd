@@ -27,6 +27,10 @@ func _init() -> void:
 	print("[GamaManager] discovered %d levels" % _levels.size())
 
 
+func _ready() -> void:
+	_ensure_music.call_deferred()
+
+
 func load_level(id: int) -> void:
 	assert(1 <= id and id <= _levels.size(), "level id out of bounds")
 	_current_level = id
@@ -44,6 +48,12 @@ func load_level(id: int) -> void:
 	var cnb := ChainAndBalls.get_instance()
 	if not cnb.got_lobotomized.is_connected(_player_dead):
 		cnb.got_lobotomized.connect(_player_dead, CONNECT_ONE_SHOT)
+
+	_ensure_music.call_deferred()
+
+
+func _ensure_music() -> void:
+	MusicManager.ensure_playing("main")
 
 
 func last_level() -> int:

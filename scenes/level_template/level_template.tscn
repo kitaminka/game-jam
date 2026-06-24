@@ -1,8 +1,5 @@
 [gd_scene format=3 uid="uid://flppggcvx0w1"]
 
-[ext_resource type="PackedScene" uid="uid://doh5v2chquosb" path="res://scenes/audio/gameplay_audio_player/gameplay_audio_player.tscn" id="1_lssjv"]
-[ext_resource type="AudioStream" uid="uid://dspyaensqoboj" path="res://assets/audio/music/main_preloop_w_pause.wav" id="2_rwofw"]
-[ext_resource type="AudioStream" uid="uid://dsayevgimoglo" path="res://assets/audio/music/main_loop.wav" id="3_frmvx"]
 [ext_resource type="PackedScene" uid="uid://cav0jmryusucx" path="res://ui/menus/pause_menu/pause_menu.tscn" id="4_eng0m"]
 [ext_resource type="Texture2D" uid="uid://bcsv335crybqa" path="res://assets/art/tile_2.png" id="5_q12ii"]
 [ext_resource type="PackedScene" uid="uid://05li8lv1ril2" path="res://scenes/chain_and_balls/chain_and_balls.tscn" id="6_aj1na"]
@@ -38,13 +35,6 @@ agent_radius = 20.0
 
 [node name="LevelTemplate" type="Node2D" unique_id=669825193]
 y_sort_enabled = true
-
-[node name="GameplayAudioPlayer" parent="." unique_id=997551989 instance=ExtResource("1_lssjv")]
-process_mode = 3
-stream = ExtResource("2_rwofw")
-autoplay = true
-bus = &"Music"
-loop_stream = ExtResource("3_frmvx")
 
 [node name="PauseMenu" parent="." unique_id=840180984 instance=ExtResource("4_eng0m")]
 visible = false

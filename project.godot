@@ -29,6 +29,7 @@ Transition="*res://ui/transition/transition.tscn"
 SettingsCfg="*res://ui/settings/settings_cfg.gd"
 Persistence="*uid://cxsrp3xinbvkf"
 GameManager="*uid://cagct1tdxfty"
+MusicManager="*uid://hx6u3ge4h5a2"
 
 [debug]
 

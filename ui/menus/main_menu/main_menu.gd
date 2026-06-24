@@ -38,6 +38,8 @@ func _ready() -> void:
 	button_reset_progress.pressed.connect(confirm_reset.popup_centered)
 	confirm_reset.confirmed.connect(Persistence.reset)
 
+	MusicManager.ensure_playing.call_deferred("main_menu")
+
 
 func _hide_all() -> void:
 	main.hide()
