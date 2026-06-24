@@ -62,7 +62,7 @@ func _ready() -> void:
 	health_component.healed.connect(_udpate_nudity_state)
 	flail_hurt_box.body_entered.connect(_on_flail_enemy_entered)
 	flail_hurt_box.area_entered.connect(_on_flail_enemy_entered)
-	
+
 
 func _physics_process(_delta: float) -> void:
 	player_sprite.global_rotation = 0
