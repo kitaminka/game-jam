@@ -4,3 +4,4 @@ res://scenes/levels/level03.tscn
 res://scenes/levels/level04.tscn
 res://scenes/levels/level05.tscn
 res://scenes/levels/level06.tscn
+res://scenes/levels/level07.tscn
