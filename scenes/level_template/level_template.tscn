@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bcsv335crybqa" path="res://assets/art/tile_2.png" id="5_q12ii"]
 [ext_resource type="PackedScene" uid="uid://05li8lv1ril2" path="res://scenes/chain_and_balls/chain_and_balls.tscn" id="6_aj1na"]
 [ext_resource type="TileSet" uid="uid://bgik4swsfbsx6" path="res://resources/tilesets/outer_walls.tres" id="7_bw430"]
+[ext_resource type="Script" uid="uid://clap501w1y3vd" path="res://scenes/tiles/variable_tilemap.gd" id="7_kaf6g"]
 [ext_resource type="TileSet" uid="uid://c3k8j3ka7re5h" path="res://resources/tilesets/tileset.tres" id="7_y3ot6"]
 [ext_resource type="PackedScene" uid="uid://c2iawpi0rhu1r" path="res://scenes/exit/exit.tscn" id="8_hghgy"]
 
@@ -57,6 +58,7 @@ metadata/_edit_lock_ = true
 [node name="Tiles" type="TileMapLayer" parent="." unique_id=1105116259 groups=["navigation_polygon_source_geometry_group"]]
 y_sort_enabled = true
 tile_set = ExtResource("7_y3ot6")
+script = ExtResource("7_kaf6g")
 metadata/_edit_lock_ = true
 
 [node name="OuterWalls" type="TileMapLayer" parent="." unique_id=1196623470 groups=["navigation_polygon_source_geometry_group"]]
