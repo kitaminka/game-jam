@@ -44,7 +44,7 @@ func _on_boss_started() -> void:
 
 func _on_boss_died() -> void:
 	var t := boss_camera.create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
-	t.tween_method(_interpolate_camera, 0, 1, 2.0)
+	t.tween_method(_interpolate_camera, 0.0, 1.0, 2.0)
 	t.chain().tween_callback(func() -> void:
 		boss_camera.enabled = false
 	)
