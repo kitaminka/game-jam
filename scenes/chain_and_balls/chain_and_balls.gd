@@ -8,13 +8,20 @@ signal got_lobotomized
 const _GROUNDED_FLAIL := preload("res://scenes/chain_and_balls/grounded_flail_ball.tscn")
 const GroundedFlail := preload("res://scenes/chain_and_balls/grounded_flail_ball.gd")
 
+enum FlailVelocityBucket {SLOW, NORMAL, FAST}
+
+@export_category("Forces")
 @export var force_p: float = 100.0
 @export var force_f: float = 100.0
-@export var damage: int = 50
 
-## Whether to consume stamina when both are flying
-@export var stamina_on_flight: bool = false
+@export_category("Attack")
+@export var damage_slow: int = 0
+@export var damage_normal: int = 50
+@export var damage_fast: int = 100
+@export var flail_velocity_threshold_normal: float = 100.0
+@export var flail_velocity_threshold_fast: float = 250.0
 
+@export_category("Hole")
 @export_flags_2d_physics var hole_mask: int = 16
 @export var hole_check_shape: Shape2D
 @export var min_hole_speed: float = 20.0
@@ -188,9 +195,24 @@ func _on_died() -> void:
 	_labotomize()
 
 
+func _get_flail_velocity_bucket() -> FlailVelocityBucket:
+	var flail_velocity_sqr := flail.linear_velocity.length_squared()
+
+	print(sqrt(flail_velocity_sqr))
+
+	if flail_velocity_sqr < flail_velocity_threshold_normal * flail_velocity_threshold_normal:
+		return FlailVelocityBucket.SLOW
+	elif flail_velocity_sqr < flail_velocity_threshold_fast * flail_velocity_threshold_fast:
+		return FlailVelocityBucket.NORMAL
+	else:
+		return FlailVelocityBucket.FAST
+
+
 func _on_flail_enemy_entered(enemy: Node2D) -> void:
 	if flail.freeze:
 		return
+
+	var bucket := _get_flail_velocity_bucket()
 
 	var knockback := flail.linear_velocity.normalized() * _calc_knockback(flail.linear_velocity.length())
 	if enemy.has_method("apply_knockback"):
@@ -201,6 +223,16 @@ func _on_flail_enemy_entered(enemy: Node2D) -> void:
 
 	var hc := enemy.get("health_component") as HealthComponent
 	if is_instance_valid(hc):
+		var damage: int
+
+		match bucket:
+			FlailVelocityBucket.SLOW:
+				damage = damage_slow
+			FlailVelocityBucket.NORMAL:
+				damage = damage_normal
+			FlailVelocityBucket.FAST:
+				damage = damage_fast
+
 		hc.damage(damage)
 
 
