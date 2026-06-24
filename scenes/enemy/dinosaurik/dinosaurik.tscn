@@ -1,0 +1,192 @@
+[gd_scene format=3 uid="uid://ceswlwo75rver"]
+
+[ext_resource type="Script" uid="uid://bpsmxdh7qeoar" path="res://scenes/enemy/dinosaurik/dinosaurik.gd" id="1_12rbl"]
+[ext_resource type="Texture2D" uid="uid://cborhgbiyuka7" path="res://assets/art/dino.png" id="2_0vqgy"]
+[ext_resource type="PackedScene" uid="uid://dw4q7rpb4mh6h" path="res://scenes/audio/sfx_player/sfx_player.tscn" id="2_ih6si"]
+[ext_resource type="AudioStream" uid="uid://bbxhjj6u05pby" path="res://assets/audio/sfx/human_hit/human_hit_1.wav" id="3_gqlbm"]
+[ext_resource type="Texture2D" uid="uid://be2il44wmo1v1" path="res://assets/art/dino-shaddow.png" id="3_qdtli"]
+[ext_resource type="AudioStream" uid="uid://0j8wvf0fp7tt" path="res://assets/audio/sfx/human_hit/human_hit_2.wav" id="4_38yyf"]
+[ext_resource type="AudioStream" uid="uid://rax6y78twemt" path="res://assets/audio/sfx/human_hit/human_hit_3.wav" id="5_ni71f"]
+[ext_resource type="AudioStream" uid="uid://ceutb3o44n6m6" path="res://assets/audio/sfx/enemy_fall/enemy_fall_1.wav" id="6_cjkr7"]
+[ext_resource type="AudioStream" uid="uid://cv2jqwjaywpog" path="res://assets/audio/sfx/enemy_fall/enemy_fall_2.wav" id="7_2j7qh"]
+[ext_resource type="PackedScene" uid="uid://dod8chnx3drsv" path="res://scenes/components/health_component/health_component.tscn" id="8_hyul6"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dtxhd"]
+streams_count = 3
+stream_0/stream = ExtResource("3_gqlbm")
+stream_1/stream = ExtResource("4_38yyf")
+stream_2/stream = ExtResource("5_ni71f")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_13gj6"]
+streams_count = 2
+stream_0/stream = ExtResource("6_cjkr7")
+stream_1/stream = ExtResource("7_2j7qh")
+
+[sub_resource type="Animation" id="Animation_tjssy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlipGroup/Sprite2D:rotation")
+tracks/0/interp = 4
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ih6si"]
+resource_name = "charge"
+length = 0.4
+loop_mode = 1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlipGroup/Sprite2D:rotation")
+tracks/0/interp = 4
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.22, 0.32),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-0.36831445, 5.958476, 5.835517, 5.9659033]
+}
+
+[sub_resource type="Animation" id="Animation_gqlbm"]
+resource_name = "charge_recovery"
+length = 2.0
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlipGroup/Sprite2D:rotation")
+tracks/0/interp = 4
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [6.4590793]
+}
+
+[sub_resource type="Animation" id="Animation_12rbl"]
+resource_name = "start_charge"
+length = 2.0
+step = 0.12
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlipGroup/Sprite2D:rotation")
+tracks/0/interp = 4
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1, 1.125, 1.25, 1.375, 1.5, 1.625, 1.75, 1.88, 2.005, 2.13, 2.255, 2.38, 2.505, 2.63),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 6.2253923, 6.334362, 6.2398167, 6.4128966, 6.229472, 6.3855424, 6.237561, 6.2253923, 6.334362, 6.2398167, 6.4128966, 6.229472, 6.3855424, 6.237561, 6.2253923, 6.334362, 6.2398167, 6.4128966, 6.229472, 6.3855424, 6.237561]
+}
+
+[sub_resource type="Animation" id="Animation_40wdo"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+step = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlipGroup/Sprite2D:rotation")
+tracks/0/interp = 4
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.08726646259971647, 0.08726646259971647]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tjssy"]
+_data = {
+&"RESET": SubResource("Animation_tjssy"),
+&"charge": SubResource("Animation_ih6si"),
+&"charge_recovery": SubResource("Animation_gqlbm"),
+&"start_charge": SubResource("Animation_12rbl"),
+&"walk": SubResource("Animation_40wdo")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_12rbl"]
+radius = 38.0
+height = 150.0
+
+[node name="Dinosaurik" type="CharacterBody2D" unique_id=1871860269 groups=["enemy"]]
+collision_layer = 2
+collision_mask = 6
+motion_mode = 1
+script = ExtResource("1_12rbl")
+walk_speed = 3000.0
+charge_speed = 600.0
+run_to_center_speed = 400.0
+
+[node name="VisibleOnScreenNotifier2D2" type="VisibleOnScreenNotifier2D" parent="." unique_id=200953374]
+position = Vector2(0, -30)
+rect = Rect2(-92, -45, 182, 81)
+
+[node name="SfxPlayer" parent="." unique_id=829347479 instance=ExtResource("2_ih6si")]
+audio_streams = Dictionary[String, AudioStream]({
+"damaged": SubResource("AudioStreamRandomizer_dtxhd"),
+"fall_into_a_hole": SubResource("AudioStreamRandomizer_13gj6")
+})
+
+[node name="HealthComponent" parent="." unique_id=1186933908 instance=ExtResource("8_hyul6")]
+initial_health = 1000
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=2060573813]
+rect = Rect2(-114, -82, 223, 99)
+show_rect = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1884903029]
+libraries/ = SubResource("AnimationLibrary_tjssy")
+autoplay = &"walk"
+blend_times = [&"charge", &"charge", 0.5, &"charge", &"charge_recovery", 0.5, &"charge", &"start_charge", 0.5, &"charge", &"walk", 0.5, &"charge_recovery", &"charge", 0.5, &"charge_recovery", &"charge_recovery", 0.5, &"charge_recovery", &"start_charge", 0.5, &"charge_recovery", &"walk", 0.5, &"start_charge", &"charge", 0.5, &"start_charge", &"charge_recovery", 0.5, &"start_charge", &"start_charge", 0.5, &"start_charge", &"walk", 0.5, &"walk", &"charge", 0.5, &"walk", &"charge_recovery", 0.5, &"walk", &"start_charge", 0.5, &"walk", &"walk", 0.5]
+
+[node name="FlipGroup" type="Node2D" parent="." unique_id=1877461978]
+
+[node name="Sprite2D" type="Sprite2D" parent="FlipGroup" unique_id=1675653022]
+unique_name_in_owner = true
+clip_children = 2
+texture = ExtResource("2_0vqgy")
+offset = Vector2(0, -34)
+metadata/_edit_group_ = true
+
+[node name="DamageFlash" type="ColorRect" parent="FlipGroup/Sprite2D" unique_id=1782675130]
+unique_name_in_owner = true
+offset_left = -116.0
+offset_top = -83.0
+offset_right = 110.0
+offset_bottom = 15.0
+color = Color(0.99215686, 0.5058824, 0.5882353, 0)
+metadata/_edit_lock_ = true
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=818558219]
+modulate = Color(0.105882354, 0.105882354, 0.105882354, 0.46666667)
+z_index = -1
+z_as_relative = false
+position = Vector2(0, 1)
+texture = ExtResource("3_qdtli")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1118381485]
+position = Vector2(0, -36)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_12rbl")
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=1433769537]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=348563834]
+visible = false
+position = Vector2(0, -36)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_12rbl")

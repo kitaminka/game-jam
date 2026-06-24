@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://cam2i64p4cnv4"]
+
+[ext_resource type="Texture2D" uid="uid://bv1x2albdaalg" path="res://assets/art/meteor_boom.png" id="1_dwra2"]
+[ext_resource type="Script" uid="uid://dch3hpj4ferxw" path="res://scenes/levels/dino_boss/boom.gd" id="2_gpi2q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnfrb"]
+atlas = ExtResource("1_dwra2")
+region = Rect2(0, 0, 94, 74)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_we5tp"]
+atlas = ExtResource("1_dwra2")
+region = Rect2(94, 0, 94, 74)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lp4mj"]
+atlas = ExtResource("1_dwra2")
+region = Rect2(188, 0, 94, 74)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_psb2g"]
+atlas = ExtResource("1_dwra2")
+region = Rect2(282, 0, 94, 74)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ik7rd"]
+atlas = ExtResource("1_dwra2")
+region = Rect2(376, 0, 94, 74)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgdi4"]
+atlas = ExtResource("1_dwra2")
+region = Rect2(470, 0, 94, 74)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ci8ja"]
+atlas = ExtResource("1_dwra2")
+region = Rect2(564, 0, 94, 74)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_557dh"]
+atlas = ExtResource("1_dwra2")
+region = Rect2(658, 0, 94, 74)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3i7w"]
+atlas = ExtResource("1_dwra2")
+region = Rect2(752, 0, 94, 74)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v57cs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnfrb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_we5tp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lp4mj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_psb2g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ik7rd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xgdi4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ci8ja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_557dh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3i7w")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="Boom" type="AnimatedSprite2D" unique_id=79665052]
+sprite_frames = SubResource("SpriteFrames_v57cs")
+autoplay = "default"
+script = ExtResource("2_gpi2q")
+damage = 20
+mask = 9

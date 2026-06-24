@@ -4,7 +4,6 @@ extends Node2D
 
 signal got_lobotomized
 
-
 const _GROUNDED_FLAIL := preload("res://scenes/chain_and_balls/grounded_flail_ball.tscn")
 const GroundedFlail := preload("res://scenes/chain_and_balls/grounded_flail_ball.gd")
 const _FAST_HIT_EFFECT := preload("res://scenes/chain_and_balls/fast_hit_effect.tscn")
@@ -43,6 +42,8 @@ var _was_lobotomized: bool = false
 @onready var player_sprite: Sprite2D = $Player/Sprite2D
 @onready var player_animation: AnimatedSprite2D = $Player/Sprite2D/AnimatedSprite2D
 
+@onready var camera: Camera2D = %Camera2D
+
 @onready var sfx_player: SfxPlayer = $Player/SfxPlayer
 
 static func get_instance() -> ChainAndBalls:
@@ -61,7 +62,7 @@ func _ready() -> void:
 	health_component.healed.connect(_udpate_nudity_state)
 	flail_hurt_box.body_entered.connect(_on_flail_enemy_entered)
 	flail_hurt_box.area_entered.connect(_on_flail_enemy_entered)
-
+	
 
 func _physics_process(_delta: float) -> void:
 	player_sprite.global_rotation = 0

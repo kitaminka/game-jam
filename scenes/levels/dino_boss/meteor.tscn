@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dt2uw8dc07ae3"]
+
+[ext_resource type="Texture2D" uid="uid://ctgu8no4787c8" path="res://assets/art/meteor.png" id="1_25vph"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25vph"]
+atlas = ExtResource("1_25vph")
+region = Rect2(0, 0, 49, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cgff"]
+atlas = ExtResource("1_25vph")
+region = Rect2(0, 16, 49, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbh3c"]
+atlas = ExtResource("1_25vph")
+region = Rect2(0, 32, 49, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8hi7"]
+atlas = ExtResource("1_25vph")
+region = Rect2(0, 48, 49, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wltib"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25vph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3cgff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbh3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8hi7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="Meteor" type="AnimatedSprite2D" unique_id=2124728213]
+sprite_frames = SubResource("SpriteFrames_wltib")
+autoplay = "default"
+frame_progress = 0.4912061
+offset = Vector2(-13, 0)
