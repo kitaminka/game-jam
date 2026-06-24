@@ -85,7 +85,7 @@ func _physics_process(delta: float) -> void:
 		if navigation.target_position.distance_squared_to(cnb.player.global_position) > navigation.target_desired_distance**2:
 			navigation.target_position = cnb.player.global_position
 		var want := navigation.get_next_path_position()
-		if global_position.distance_squared_to(want) >= movement_stop_distance*movement_stop_distance:
+		if global_position.distance_squared_to(navigation.target_position) >= movement_stop_distance*movement_stop_distance:
 			velocity += global_position.direction_to(want) * movement_speed
 
 	if knockback_enabled:
