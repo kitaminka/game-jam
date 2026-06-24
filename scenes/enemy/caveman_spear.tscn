@@ -17,6 +17,9 @@ melee_knockback = 422.747
 knockback_fading = 255.379
 knockback_multiplier = 1.176
 
+[node name="HealthComponent" parent="." index="3" unique_id=1186933908]
+initial_health = 150
+
 [node name="Sprite2D" parent="." index="4" unique_id=1675653022]
 texture = SubResource("AtlasTexture_k3hq4")
 offset = Vector2(0, -15)
