@@ -4,6 +4,10 @@ extends Node
 const SAVE_PATH: String = "user://bestscore.bin"
 
 
+# score is 1-based level
+# current = may be set by game manager or not
+# best = last level completed
+
 var best_score: int = 0
 var current_score: int = 0
 
@@ -45,6 +49,8 @@ func submit() -> void:
 
 ## Resets best score back to 0 both in memory and in file
 func reset() -> void:
+	print("[Peresistence]: progress was reset")
+
 	best_score = -1
 	current_score = 0
 	submit()

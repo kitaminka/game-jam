@@ -55,6 +55,9 @@ func current_level() -> int:
 
 
 func _next_level() -> void:
+	Persistence.current_score = _current_level
+	Persistence.submit()
+
 	if _current_level >= last_level():
 		await load_level(last_level())
 		return
