@@ -178,9 +178,6 @@ func _on_death() -> void:
 
 
 func _fall_into_a_hole() -> void:
-	if _was_lobotomized:
-		return
-
 	sfx_player.play_sound("fall_into_a_hole")
 
 	_labotomize()
