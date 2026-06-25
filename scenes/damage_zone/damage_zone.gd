@@ -50,4 +50,4 @@ func _do_damage() -> void:
 
 	for col: Dictionary in get_world_2d().direct_space_state.intersect_shape(params, 2):
 		if col.collider == cnb.player:
-			cnb.health_component.damage(damage)
+			cnb.zone_damage(damage)

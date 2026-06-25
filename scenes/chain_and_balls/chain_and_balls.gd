@@ -308,3 +308,8 @@ func _fall_into_a_hole() -> void:
 
 	health_component.damage.call_deferred(999999999)
 	modulate.a = 0.5
+
+
+func zone_damage(dmg: int) -> void:
+	if not _is_over_hole(player.global_position):
+		health_component.damage(dmg)
