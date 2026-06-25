@@ -8,6 +8,8 @@ res://scenes/levels/level07.tscn
 res://scenes/levels/level08.tscn
 res://scenes/levels/level09.tscn
 res://scenes/levels/dino_boss/dino_boss.tscn
-
-# Rage-game parkour level.
+res://scenes/levels/level11.tscn
+res://scenes/levels/level12.tscn
+res://scenes/levels/level13.tscn
+res://scenes/levels/level14.tscn
 res://scenes/levels/level15.tscn
