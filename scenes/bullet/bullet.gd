@@ -48,5 +48,8 @@ func _on_body_entered(area: Node2D) -> void:
 
 
 func apply_knockback(v: Vector2) -> void:
+	if v.length_squared() < 100**2:
+		return
+
 	_direction = v.normalized()
 	rotation = _direction.angle()
