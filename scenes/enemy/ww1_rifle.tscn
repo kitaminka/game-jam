@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://pqs00v1i6hyq"]
 
 [ext_resource type="PackedScene" uid="uid://gbsgy7a03y4m" path="res://scenes/enemy/enemy.tscn" id="1_8tta4"]
-[ext_resource type="PackedScene" uid="uid://fydhb1cxoad6" path="res://scenes/bullet/bullet.tscn" id="2_5rbpi"]
+[ext_resource type="PackedScene" uid="uid://0snxwf0tk8mt" path="res://scenes/bullet/weak_bullet.tscn" id="2_5rbpi"]
 [ext_resource type="Texture2D" uid="uid://cl148x8e0tt8p" path="res://assets/art/all_enemies.png" id="2_a34qf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5rbpi"]
