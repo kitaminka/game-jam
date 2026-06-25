@@ -46,28 +46,28 @@ position = Vector2(-132, 812)
 position = Vector2(-776, 350)
 
 [node name="CavemanClub7" parent="." index="12" unique_id=1056699355 instance=ExtResource("2_t0wx1")]
-position = Vector2(-616, 751)
+position = Vector2(-584, 840)
 
-[node name="CavemanClub8" parent="." index="13" unique_id=278866919 instance=ExtResource("2_t0wx1")]
+[node name="CavemanClub10" parent="." index="13" unique_id=1067990280 instance=ExtResource("2_t0wx1")]
+position = Vector2(-667, 846)
+
+[node name="CavemanClub8" parent="." index="14" unique_id=278866919 instance=ExtResource("2_t0wx1")]
 position = Vector2(351, 836)
 
-[node name="CavemanClub9" parent="." index="14" unique_id=1494538653 instance=ExtResource("2_t0wx1")]
+[node name="CavemanClub9" parent="." index="15" unique_id=1494538653 instance=ExtResource("2_t0wx1")]
 position = Vector2(62, 1154)
 
-[node name="CavemanClub2" parent="." index="15" unique_id=1579799259 instance=ExtResource("2_t0wx1")]
+[node name="CavemanClub2" parent="." index="16" unique_id=1579799259 instance=ExtResource("2_t0wx1")]
 position = Vector2(403, 362)
 
-[node name="PirateBarrel" parent="." index="16" unique_id=1637449627 instance=ExtResource("3_a88s4")]
+[node name="PirateBarrel" parent="." index="17" unique_id=1637449627 instance=ExtResource("3_a88s4")]
 position = Vector2(312, 365)
 
-[node name="PirateBarrel6" parent="." index="17" unique_id=2040160153 instance=ExtResource("3_a88s4")]
+[node name="PirateBarrel6" parent="." index="18" unique_id=2040160153 instance=ExtResource("3_a88s4")]
 position = Vector2(-168, 835)
 
-[node name="PirateFlintlock3" parent="." index="18" unique_id=1661228786 instance=ExtResource("4_7kort")]
-position = Vector2(-219, 1231)
-
 [node name="PirateFlintlock5" parent="." index="19" unique_id=1494482409 instance=ExtResource("4_7kort")]
-position = Vector2(-214, 1147)
+position = Vector2(-209, 1193)
 
 [node name="PirateFlintlock4" parent="." index="20" unique_id=839340107 instance=ExtResource("4_7kort")]
 position = Vector2(-625, 292)

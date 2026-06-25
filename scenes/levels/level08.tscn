@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://flppggcvx0w1" path="res://scenes/level_template/level_template.tscn" id="1_3omm3"]
 [ext_resource type="PackedScene" uid="uid://xe8ao63ds45" path="res://scenes/enemy/pirate_barrel.tscn" id="2_gmmq1"]
 [ext_resource type="PackedScene" uid="uid://cfhttw32qu25g" path="res://scenes/enemy/pirate_flintlock.tscn" id="3_200ke"]
-[ext_resource type="PackedScene" uid="uid://1meomxvyd37m" path="res://scenes/enemy/caveman_spear.tscn" id="4_ghn5h"]
 [ext_resource type="PackedScene" uid="uid://v7lqtvnaboqq" path="res://scenes/enemy/caveman_club.tscn" id="5_ghn5h"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ghn5h"]
@@ -52,16 +51,16 @@ position = Vector2(1052, 175)
 position = Vector2(1056, 509)
 
 [node name="PirateFlintlock3" parent="." index="13" unique_id=1549059771 instance=ExtResource("3_200ke")]
-position = Vector2(1425, 350)
+position = Vector2(1857, 336)
 
-[node name="CavemanSpear" parent="." index="14" unique_id=1901404800 instance=ExtResource("4_ghn5h")]
-position = Vector2(1363, 159)
-
-[node name="CavemanSpear2" parent="." index="15" unique_id=1265266577 instance=ExtResource("4_ghn5h")]
-position = Vector2(1361, 544)
-
-[node name="PirateBarrel5" parent="." index="16" unique_id=194392313 instance=ExtResource("2_gmmq1")]
+[node name="PirateBarrel5" parent="." index="14" unique_id=194392313 instance=ExtResource("2_gmmq1")]
 position = Vector2(2156, 340)
 
-[node name="CavemanClub" parent="." index="17" unique_id=1668869364 instance=ExtResource("5_ghn5h")]
+[node name="CavemanClub" parent="." index="15" unique_id=1668869364 instance=ExtResource("5_ghn5h")]
 position = Vector2(2039.1045, -13.857773)
+
+[node name="CavemanClub2" parent="." index="16" unique_id=397212329 instance=ExtResource("5_ghn5h")]
+position = Vector2(1439.0566, 135.12117)
+
+[node name="CavemanClub3" parent="." index="17" unique_id=1321572886 instance=ExtResource("5_ghn5h")]
+position = Vector2(1455, 539)
