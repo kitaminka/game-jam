@@ -19,3 +19,6 @@ hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1714145548]
 shape = SubResource("CircleShape2D_4oe47")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="." unique_id=1132539952]
+radius = 10.45

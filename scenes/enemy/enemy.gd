@@ -51,6 +51,7 @@ var _knockback_velocity: Vector2 #leftover velocity after
 var _dash_velocity: Vector2
 var _dash_cooldown: float
 var _about_to_dash: bool = false
+var _time_since_dash: float = 0
 
 
 @onready var cnb := ChainAndBalls.get_instance()
@@ -99,12 +100,12 @@ func _physics_process(delta: float) -> void:
 			velocity += global_position.direction_to(want) * movement_speed
 
 	if dash_enabled and not _was_lobotomized:
-		if (get_position_delta() / delta).length_squared() < 1 and not _about_to_dash:
-			#_dash_velocity = Vector2.ZERO
-			pass
+		if (get_position_delta() / delta).length_squared() < 10*10 and _time_since_dash > 0.5 and not _about_to_dash:
+			_dash_velocity = Vector2.ZERO
 		else:
 			_dash_velocity = _dash_velocity.move_toward(Vector2.ZERO, dash_decel * delta)
 		_dash_cooldown = maxf(_dash_cooldown - delta, 0)
+		_time_since_dash += delta
 
 		if (
 			not _about_to_dash
@@ -121,6 +122,7 @@ func _physics_process(delta: float) -> void:
 			animation_player.animation_finished.connect(func(_anim: StringName) -> void:
 				# note: we are using stale direction on purpose
 				_dash_velocity = dir * dash_velocity
+				_time_since_dash = 0
 				_about_to_dash = false,
 				CONNECT_ONE_SHOT)
 
@@ -171,6 +173,9 @@ func _physics_process(delta: float) -> void:
 
 		_shooting_cooldown -= delta
 		_shooting_cooldown = maxf(_shooting_cooldown, 0.0)
+
+	if hole_detector.has_overlapping_bodies() or hole_detector.has_overlapping_areas():
+		_fall_into_a_hole()
 
 
 func _player_is_visible_from(origin: Vector2) -> bool:
