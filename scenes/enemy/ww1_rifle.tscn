@@ -18,12 +18,12 @@ melee_distance = 13.0
 shooting_enabled = true
 shooting_scene = ExtResource("2_5rbpi")
 shooting_interval = 2.0
-shooting_marker = NodePath("Barrel")
+shooting_marker = NodePath("FlipGroup/Barrel")
 knockback_multiplier = 1.2
 
-[node name="Sprite2D" parent="." index="4" unique_id=1675653022]
+[node name="Barrel" type="Marker2D" parent="FlipGroup" parent_id_path=PackedInt32Array(1068944302) index="0" unique_id=1943733343]
+position = Vector2(22, -24)
+
+[node name="Sprite2D" parent="FlipGroup" parent_id_path=PackedInt32Array(1068944302) index="1" unique_id=1675653022]
 texture = SubResource("AtlasTexture_5rbpi")
 offset = Vector2(9, -15)
-
-[node name="Barrel" type="Marker2D" parent="." index="9" unique_id=1943733343]
-position = Vector2(22, -24)

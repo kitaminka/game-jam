@@ -18,7 +18,7 @@ melee_enabled = true
 melee_distance = 13.0
 shooting_enabled = true
 shooting_scene = ExtResource("2_0wg40")
-shooting_marker = NodePath("ShootingPoint")
+shooting_marker = NodePath("FlipGroup/Sprite2D/ShootingPoint")
 shooting_visibility_check_mask = 5
 knockback_multiplier = 0.6
 armour_enabled = true
@@ -26,12 +26,12 @@ armour_enabled = true
 [node name="HealthComponent" parent="." index="3" unique_id=1186933908]
 initial_health = 200
 
-[node name="Sprite2D" parent="." index="4" unique_id=1675653022]
+[node name="Sprite2D" parent="FlipGroup" parent_id_path=PackedInt32Array(1068944302) index="0" unique_id=1675653022]
 texture = SubResource("AtlasTexture_0wg40")
 offset = Vector2(-2, -17)
 
+[node name="ShootingPoint" type="Marker2D" parent="FlipGroup/Sprite2D" index="1" unique_id=1715365634]
+position = Vector2(-8, -14)
+
 [node name="CollisionShape2D" parent="." index="5" unique_id=1280122558]
 shape = SubResource("CapsuleShape2D_0kcgg")
-
-[node name="ShootingPoint" type="Marker2D" parent="." index="9" unique_id=1715365634]
-position = Vector2(-8, -14)

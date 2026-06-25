@@ -8,7 +8,7 @@
 atlas = ExtResource("3_ts0s2")
 region = Rect2(225, 12, 26, 32)
 
-[node name="WW1MachineGun" unique_id=1871860269 instance=ExtResource("1_40tmr")]
+[node name="WW1MachineGun" unique_id=1871860269 node_paths=PackedStringArray("shooting_marker") instance=ExtResource("1_40tmr")]
 movement_enabled = true
 movement_speed = 10.0
 movement_stop_distance = 150.0
@@ -17,10 +17,14 @@ melee_knockback = 200.0
 shooting_enabled = true
 shooting_scene = ExtResource("2_kk8ny")
 shooting_interval = 0.5
+shooting_marker = NodePath("FlipGroup/Marker2D")
 knockback_multiplier = 0.2
 armour_enabled = true
 armour_efficiency = 1.6
 
-[node name="Sprite2D" parent="." index="4" unique_id=1675653022]
+[node name="Sprite2D" parent="FlipGroup" parent_id_path=PackedInt32Array(1068944302) index="0" unique_id=1675653022]
 texture = SubResource("AtlasTexture_55hp7")
 offset = Vector2(2, -15)
+
+[node name="Marker2D" type="Marker2D" parent="FlipGroup" parent_id_path=PackedInt32Array(1068944302) index="1" unique_id=1392103320]
+position = Vector2(13, -13)

@@ -42,26 +42,33 @@ var _knockback_velocity: Vector2 #leftover velocity after
 @export var armour_efficiency: float = 0.9
 
 
+@export_group("Dash", "dash")
+@export_custom(PROPERTY_HINT_GROUP_ENABLE, "") var dash_enabled: bool = false
+@export var dash_distance: float = 150.0
+@export var dash_interval: float = 4.0
+@export var dash_velocity: float = 150.0
+@export var dash_decel: float = 100.0
+var _dash_velocity: Vector2
+var _dash_cooldown: float
+var _about_to_dash: bool = false
+
+
 @onready var cnb := ChainAndBalls.get_instance()
 @onready var health_component: HealthComponent = $HealthComponent
-@onready var sprite: Sprite2D = $Sprite2D
-@onready var highlight_rect: ColorRect = $Sprite2D/ColorRect
+@onready var sprite: Sprite2D = %Sprite2D
+@onready var highlight_rect: ColorRect = %HighlightRect
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hole_detector: Area2D = $HoleDetector
 @onready var navigation: NavigationAgent2D = $NavigationAgent2D
 @onready var sfx_player: SfxPlayer = $SfxPlayer
+@onready var flip_group: Node2D = $FlipGroup
 
-var _initial_sprite_offset: Vector2
-var _initial_marker_offset: Vector2
 var _was_lobotomized: bool = false
 
 
 func _ready() -> void:
 	health_component.damaged.connect(_on_damaged)
 	health_component.died.connect(_on_death)
-	_initial_sprite_offset = sprite.offset
-	if is_instance_valid(shooting_marker):
-		_initial_marker_offset = shooting_marker.position
 
 	_randomize_animation()
 
@@ -73,6 +80,8 @@ func _ready() -> void:
 	navigation.max_speed = movement_speed
 	navigation.velocity_computed.connect(_on_velocity_computed)
 
+	_dash_cooldown = dash_interval
+
 	set_physics_process(false)
 	($VisibleOnScreenNotifier2D as VisibleOnScreenNotifier2D).screen_entered.connect(set_physics_process.bind(true))
 
@@ -82,12 +91,38 @@ func _physics_process(delta: float) -> void:
 
 	velocity = Vector2.ZERO
 
-	if movement_enabled and not _was_lobotomized:
+	if movement_enabled and not _was_lobotomized and not _about_to_dash:
 		if navigation.target_position.distance_squared_to(cnb.player.global_position) > navigation.target_desired_distance**2:
 			navigation.target_position = cnb.player.global_position
 		var want := navigation.get_next_path_position()
 		if global_position.distance_squared_to(navigation.target_position) >= movement_stop_distance*movement_stop_distance:
 			velocity += global_position.direction_to(want) * movement_speed
+
+	if dash_enabled and not _was_lobotomized:
+		if (get_position_delta() / delta).length_squared() < 1 and not _about_to_dash:
+			#_dash_velocity = Vector2.ZERO
+			pass
+		else:
+			_dash_velocity = _dash_velocity.move_toward(Vector2.ZERO, dash_decel * delta)
+		_dash_cooldown = maxf(_dash_cooldown - delta, 0)
+
+		if (
+			not _about_to_dash
+			and _dash_cooldown <= 0
+			and _dash_velocity.is_zero_approx()
+			and dist2 <= dash_distance*dash_distance
+			and _player_is_visible_from(global_position)
+		):
+			# do the dash
+			_dash_cooldown = dash_interval
+			_about_to_dash = true
+			animation_player.play(&"flip")
+			var dir := global_position.direction_to(cnb.player.global_position)
+			animation_player.animation_finished.connect(func(_anim: StringName) -> void:
+				# note: we are using stale direction on purpose
+				_dash_velocity = dir * dash_velocity
+				_about_to_dash = false,
+				CONNECT_ONE_SHOT)
 
 	if knockback_enabled:
 		_knockback_velocity = _knockback_velocity.move_toward(Vector2.ZERO, knockback_fading * delta)
@@ -95,20 +130,13 @@ func _physics_process(delta: float) -> void:
 	# this calls move and slide implicitly through _on_velocity_computed
 	navigation.velocity = velocity
 
-	if not _was_lobotomized:
-		var s := signf(navigation.get_next_path_position().x - global_position.x)
+	if not _was_lobotomized and not _about_to_dash:
+		var s := signf(_dash_velocity.x)
+		if is_zero_approx(s):
+			s = signf(navigation.get_next_path_position().x - global_position.x)
 
-		sprite.flip_h = s < 0
-		if sprite.flip_h:
-			sprite.offset = _initial_sprite_offset * Vector2(-1, 1)
-		else:
-			sprite.offset = _initial_sprite_offset
-
-		if is_instance_valid(shooting_marker):
-			if sprite.flip_h:
-				shooting_marker.position = _initial_marker_offset * Vector2(-1, 1)
-			else:
-				shooting_marker.position = _initial_marker_offset
+		if not is_zero_approx(s):
+			flip_group.scale.x = s
 
 	if melee_enabled and not _was_lobotomized:
 		if (
@@ -118,7 +146,13 @@ func _physics_process(delta: float) -> void:
 		):
 			_melee_cooldown = melee_interval
 			cnb.health_component.damage(melee_damage)
-			cnb.player.apply_central_impulse(global_position.direction_to(cnb.player.global_position) * melee_knockback)
+
+			var k: Vector2
+			if _dash_velocity.is_zero_approx():
+				k = global_position.direction_to(cnb.player.global_position) * melee_knockback
+			else:
+				k = _dash_velocity.normalized() * maxf(_dash_velocity.length(), melee_knockback)
+			cnb.player.apply_central_impulse(k)
 
 		_melee_cooldown -= delta
 		_melee_cooldown = maxf(_melee_cooldown, 0.0)
@@ -145,11 +179,11 @@ func _player_is_visible_from(origin: Vector2) -> bool:
 
 	var result := space_state.intersect_ray(query)
 
-	return !!result && result.collider == cnb.player
+	return not result.is_empty() and result.collider == cnb.player
 
 
 func _on_velocity_computed(vel: Vector2) -> void:
-	velocity = vel + _knockback_velocity
+	velocity = vel + _knockback_velocity + _dash_velocity
 	move_and_slide()
 
 
@@ -170,6 +204,9 @@ func _labotomize() -> void:
 
 	got_lobotomized.emit()
 
+	_knockback_velocity += _dash_velocity
+	_dash_velocity = Vector2.ZERO
+
 	_was_lobotomized = true
 	animation_player.stop()
 	sfx_player.prepare_to_die()
@@ -188,6 +225,9 @@ func _on_death() -> void:
 
 
 func _fall_into_a_hole() -> void:
+	if not _dash_velocity.is_zero_approx():
+		return
+
 	if not _was_lobotomized:
 		sfx_player.play_sound("fall_into_a_hole")
 
@@ -207,14 +247,17 @@ func _rand_sign() -> float:
 ## Public function, API expected by chain & balls
 func apply_knockback(v: Vector2) -> void:
 	_knockback_velocity += v * knockback_multiplier
+	_knockback_velocity += _dash_velocity
+	_dash_velocity = Vector2.ZERO
 
 
 func apply_armour(r: RigidBody2D, _knockback: Vector2) -> void:
 	if not armour_enabled or _was_lobotomized:
 		return
 
-	print("armour!")
-	var dir := global_position.direction_to(r.global_position)
-	var c := r.linear_velocity.project(dir)
-	r.apply_central_impulse(-(1 + armour_efficiency) * c)
+	# var dir := global_position.direction_to(r.global_position)
+	# var c := r.linear_velocity.project(dir)
+	# r.apply_central_impulse(-(1 + armour_efficiency) * c)
+
+	r.apply_central_impulse(-2 * r.linear_velocity)
 	r.apply_torque_impulse(randf_range(-PI, PI))

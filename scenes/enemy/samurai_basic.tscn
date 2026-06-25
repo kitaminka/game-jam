@@ -15,10 +15,17 @@ melee_enabled = true
 melee_damage = 15
 melee_distance = 13.0
 melee_knockback = 120.0
+dash_enabled = true
+dash_distance = 200.0
+dash_interval = 6.0
+dash_velocity = 370.0
 
-[node name="Sprite2D" parent="." index="4" unique_id=1675653022]
+[node name="AnimationPlayer" parent="." index="2" unique_id=1884903029]
+next/flip = &"idle"
+
+[node name="Sprite2D" parent="FlipGroup" parent_id_path=PackedInt32Array(1068944302) index="0" unique_id=1675653022]
 texture = SubResource("AtlasTexture_o6c14")
 offset = Vector2(-1, -22)
 
-[node name="ColorRect" parent="Sprite2D" index="0" unique_id=1782675130]
+[node name="HighlightRect" parent="FlipGroup/Sprite2D" index="0" unique_id=1782675130]
 offset_top = -51.0
