@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://cam2i64p4cnv4"]
 
 [ext_resource type="Texture2D" uid="uid://bv1x2albdaalg" path="res://assets/art/meteor_boom.png" id="1_dwra2"]
+[ext_resource type="Texture2D" uid="uid://b3ibm6pneahdm" path="res://assets/art/exit_programmerart.png" id="2_fnfrb"]
 [ext_resource type="Script" uid="uid://dch3hpj4ferxw" path="res://scenes/levels/dino_boss/boom.gd" id="2_gpi2q"]
+[ext_resource type="Texture2D" uid="uid://bwomdwmltburr" path="res://assets/art/met_crater_1.png" id="4_we5tp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dwra2"]
 atlas = ExtResource("1_dwra2")
@@ -39,6 +41,10 @@ region = Rect2(1001, 0, 143, 143)
 atlas = ExtResource("1_dwra2")
 region = Rect2(1144, 0, 143, 143)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_557dh"]
+atlas = ExtResource("2_fnfrb")
+region = Rect2(10, 8, 10, 8)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_v57cs"]
 animations = [{
 "frames": [{
@@ -68,6 +74,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ci8ja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_557dh")
 }],
 "loop": false,
 "name": &"default",
@@ -77,8 +86,12 @@ animations = [{
 [node name="Boom" type="AnimatedSprite2D" unique_id=79665052]
 sprite_frames = SubResource("SpriteFrames_v57cs")
 autoplay = "default"
-frame = 8
-frame_progress = 1.0
 script = ExtResource("2_gpi2q")
 damage = 20
 mask = 9
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=379764822]
+visible = false
+z_index = -5
+z_as_relative = false
+texture = ExtResource("4_we5tp")
