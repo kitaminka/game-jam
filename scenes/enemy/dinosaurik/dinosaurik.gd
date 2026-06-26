@@ -87,6 +87,8 @@ func _ready() -> void:
 		inst.position = position
 		get_parent().add_child.call_deferred(inst)
 		queue_free()
+
+		sfx_player.play_sound("dino_death")
 		sfx_player.prepare_to_die()
 	)
 

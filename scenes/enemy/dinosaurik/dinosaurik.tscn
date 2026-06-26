@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://be2il44wmo1v1" path="res://assets/art/dino-shaddow.png" id="3_qdtli"]
 [ext_resource type="AudioStream" uid="uid://0j8wvf0fp7tt" path="res://assets/audio/sfx/human_hit/human_hit_2.wav" id="4_38yyf"]
 [ext_resource type="AudioStream" uid="uid://rax6y78twemt" path="res://assets/audio/sfx/human_hit/human_hit_3.wav" id="5_ni71f"]
+[ext_resource type="AudioStream" uid="uid://d0rdih7ay0yw6" path="res://assets/audio/sfx/dino_death.wav" id="6_a0b26"]
 [ext_resource type="PackedScene" uid="uid://dod8chnx3drsv" path="res://scenes/components/health_component/health_component.tscn" id="8_hyul6"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dtxhd"]
@@ -128,7 +129,8 @@ rect = Rect2(-92, -45, 182, 81)
 
 [node name="SfxPlayer" parent="." unique_id=829347479 instance=ExtResource("2_ih6si")]
 audio_streams = Dictionary[String, AudioStream]({
-"damaged": SubResource("AudioStreamRandomizer_dtxhd")
+"damaged": SubResource("AudioStreamRandomizer_dtxhd"),
+"dino_death": ExtResource("6_a0b26")
 })
 
 [node name="HealthComponent" parent="." unique_id=1186933908 instance=ExtResource("8_hyul6")]
