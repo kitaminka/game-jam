@@ -62,8 +62,6 @@ y_sort_enabled = true
 script = ExtResource("1_gnoq6")
 force_p = 571.315
 force_f = 500.0
-damage_normal = 9999
-damage_fast = 9999
 hole_check_shape = SubResource("CircleShape2D_1pg28")
 min_hole_speed = 50.0
 
