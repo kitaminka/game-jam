@@ -1,21 +1,14 @@
-# Godot Template - Pixelart Project
+James Balld
 
-This is a placeholder project to work with pixelated games on godot.
-Used for gamejams, so files like assets and audio are also commited into git repo.
+Brackenford, England, 20xx.
 
-Project setup:
+My name is Balld. James Balld.
 
-- Godot 4.6
-- Resolution 640x360 (aspect ratio 16:9)
+I was sent by MA6 on a recon mission to the local history museum. Things did not go according to plan.
 
-## Project includes:
+Use the flail found by James to move around and defeat enemies.
+Game came out a little on the hard side, but still includes a harder mode for those who really want to feel the burn.
 
-- Menus such as pause and main menu
-- Menu navigation
-- Peristence storage
-- Health component
-- Project archiceture (folder and etc)
-- Project config for pixelart games
-- Project warnings setup
-- Build configs and build directories
-- and maybe something else, I don't remember
+All assets were made by the team during the game jam.
+Playable game builds are available on (Itch.io)[https://wwailer.itch.io/james-balld].
+Made for (The Very Serious Juniper Dev Game Jam)[https://itch.io/jam/theveryseriousjuniperdevgamejam].
