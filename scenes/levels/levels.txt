@@ -28,7 +28,27 @@ dialog: res://assets/dialogue/after_dino.txt
 
 res://scenes/levels/level11.tscn
 res://scenes/levels/level12.tscn
+
+dialog: res://assets/dialogue/before13.txt
 res://scenes/levels/level13.tscn
+
 res://scenes/levels/level14.tscn
+dialog: res://assets/dialogue/before15.txt
 res://scenes/levels/level15.tscn
+
+dialog: res://assets/dialogue/before16.txt
+res://scenes/levels/level16.tscn
+
+res://scenes/levels/level17.tscn
+
+# level 18
+# maybe a short dialog here
+
+# level 19
+
+dialog: res://assets/dialogue/before_chase.txt
 res://scenes/levels/level_chase/level_chase.tscn
+
+
+# outro is not implemented
+dialog: res://assets/dialogue/outro.txt

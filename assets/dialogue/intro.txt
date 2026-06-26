@@ -2,6 +2,10 @@
 # P = Phone
 # J = James
 
+# this town does not exist, i checked
+N Brackenford, England, 20xx
+N Agent James Balld arriving at the local history museum.
+
 P James, this is you briefing. Listen closely.
 J I'm all ears.
 P Have you arrived at the History Museum?

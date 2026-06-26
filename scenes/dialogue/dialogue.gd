@@ -20,6 +20,7 @@ func _run() -> void:
 
 	const LINE_JAMES: PackedScene = preload("res://scenes/dialogue/line_james.tscn")
 	const LINE_PHONE: PackedScene = preload("res://scenes/dialogue/line_phone.tscn")
+	const LINE_NARRATOR: PackedScene = preload("res://scenes/dialogue/line_narrator.tscn")
 
 	var lines := scenario.split("\n", false)
 	var first := true
@@ -38,6 +39,7 @@ func _run() -> void:
 			'#': continue
 			'J': scn = LINE_JAMES
 			'P': scn = LINE_PHONE
+			'N': scn = LINE_NARRATOR
 			_:
 				push_error("unknown speaker: %s" % speaker)
 				continue

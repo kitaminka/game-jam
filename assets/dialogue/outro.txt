@@ -1,0 +1,9 @@
+# Outro (after final level)
+# J - james
+# P - phone
+
+P James, this dialog is not implemented.
+J I know.
+J Can i at least bring the flail home?
+P No.
+N [wave]*epic explosion*[/wave]

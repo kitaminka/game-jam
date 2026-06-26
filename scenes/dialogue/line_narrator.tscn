@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://i7ili752whdt"]
+
+[ext_resource type="PackedScene" uid="uid://d1ktnomh5f7r8" path="res://scenes/dialogue/line_james.tscn" id="1_c1p1c"]
+
+[node name="LineNarrator" unique_id=981304959 instance=ExtResource("1_c1p1c")]
+
+[node name="RichTextLabel" parent="." index="0" unique_id=911454223]
+horizontal_alignment = 1
+
+[node name="VSeparator" parent="." index="1" unique_id=805283388]
+visible = false
+
+[node name="TextureRect" parent="." index="2" unique_id=355498445]
+visible = false

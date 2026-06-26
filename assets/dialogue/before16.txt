@@ -1,0 +1,15 @@
+# Before 16 (the parkour level)
+# J - james
+# P - phone
+
+P James, status check.
+J Can you run some info for me please?
+P I'm listening.
+J What are the walls made of here?
+J I can effortlessly break through the floor, my flail crunches armour like paper, but seems to perfectly rebound from the walls.
+J Some witchcraft.
+P Right.
+P Sorry, you will have to research that yourself.
+P Have you tried licking it?
+J Salty.
+P Of course you have..
