@@ -65,109 +65,109 @@ navigation_polygon = SubResource("NavigationPolygon_3n7h2")
 [node name="Exit" parent="." index="6" unique_id=652828334]
 position = Vector2(312, -584)
 
-[node name="Arrows" type="Node2D" parent="." index="8" unique_id=53646809]
-
-[node name="Sprite2D2" type="Sprite2D" parent="Arrows" index="0" unique_id=1915563910]
-modulate = Color(0.18787709, 0.11049742, 0.01942006, 0.2784314)
+[node name="Hints" type="Node2D" parent="." index="8" unique_id=1828647641]
 z_index = -15
-position = Vector2(-111, 0)
-rotation = 1.5707964
-texture = ExtResource("2_msin7")
 
-[node name="Sprite2D3" type="Sprite2D" parent="Arrows" index="1" unique_id=528058667]
-modulate = Color(0.18787709, 0.11049742, 0.01942006, 0.2784314)
-z_index = -15
-position = Vector2(288, -33)
-texture = ExtResource("2_msin7")
-
-[node name="Sprite2D4" type="Sprite2D" parent="Arrows" index="2" unique_id=2076458691]
-modulate = Color(0.18787709, 0.11049742, 0.01942006, 0.2784314)
-z_index = -15
-position = Vector2(312, -513)
-texture = ExtResource("2_msin7")
-
-[node name="Flail" type="Node2D" parent="." index="9" unique_id=1767820972]
+[node name="Flail" type="Node2D" parent="Hints" index="0" unique_id=1767820972]
 modulate = Color(0.20293474, 0.1197686, 0.022585222, 0.58431375)
 position = Vector2(-360, -66)
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Flail" index="0" unique_id=1824487297]
+[node name="Sprite2D" type="Sprite2D" parent="Hints/Flail" index="0" unique_id=1824487297]
 position = Vector2(-18, -13)
 texture = SubResource("AtlasTexture_i4uh8")
 centered = false
 
-[node name="Sprite2D2" type="Sprite2D" parent="Flail" index="1" unique_id=594949139]
+[node name="Sprite2D2" type="Sprite2D" parent="Hints/Flail" index="1" unique_id=594949139]
 position = Vector2(-19, 19)
 texture = SubResource("AtlasTexture_qwlqn")
 centered = false
 
-[node name="Sprite2D3" type="Sprite2D" parent="Flail" index="2" unique_id=753218052]
+[node name="Sprite2D3" type="Sprite2D" parent="Hints/Flail" index="2" unique_id=753218052]
 position = Vector2(3, 25)
 texture = SubResource("AtlasTexture_g0jr5")
 centered = false
 
-[node name="ColorRect" type="ColorRect" parent="Flail" index="3" unique_id=231176132]
+[node name="ColorRect" type="ColorRect" parent="Hints/Flail" index="3" unique_id=231176132]
 custom_minimum_size = Vector2(1, 1)
 offset_left = -20.0
 offset_top = 17.0
 offset_right = 21.0
 offset_bottom = 19.0
 
-[node name="ColorRect2" type="ColorRect" parent="Flail" index="4" unique_id=48792117]
+[node name="ColorRect2" type="ColorRect" parent="Hints/Flail" index="4" unique_id=48792117]
 custom_minimum_size = Vector2(1, 1)
 offset_left = -1.0
 offset_top = 19.0
 offset_right = 1.0
 offset_bottom = 46.0
 
-[node name="Stand" type="Node2D" parent="." index="10" unique_id=635433487]
+[node name="Stand" type="Node2D" parent="Hints" index="1" unique_id=635433487]
 modulate = Color(0.20293474, 0.1197686, 0.022585222, 0.58431375)
 position = Vector2(-221, -64)
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Stand" index="0" unique_id=1456221349]
+[node name="Sprite2D" type="Sprite2D" parent="Hints/Stand" index="0" unique_id=1456221349]
 position = Vector2(-4, -17)
 texture = SubResource("AtlasTexture_chssp")
 centered = false
 
-[node name="Sprite2D2" type="Sprite2D" parent="Stand" index="1" unique_id=1163883928]
+[node name="Sprite2D2" type="Sprite2D" parent="Hints/Stand" index="1" unique_id=1163883928]
 position = Vector2(-14, 17)
 texture = SubResource("AtlasTexture_3yqkj")
 centered = false
 
-[node name="Sprite2D3" type="Sprite2D" parent="Stand" index="2" unique_id=2101214819]
+[node name="Sprite2D3" type="Sprite2D" parent="Hints/Stand" index="2" unique_id=2101214819]
 position = Vector2(7, 22)
 texture = SubResource("AtlasTexture_if0f4")
 centered = false
 
-[node name="ColorRect" type="ColorRect" parent="Stand" index="3" unique_id=1389175861]
+[node name="ColorRect" type="ColorRect" parent="Hints/Stand" index="3" unique_id=1389175861]
 custom_minimum_size = Vector2(1, 1)
 offset_left = -14.0
 offset_top = 15.0
 offset_right = 23.0
 offset_bottom = 17.0
 
-[node name="ColorRect2" type="ColorRect" parent="Stand" index="4" unique_id=973017859]
+[node name="ColorRect2" type="ColorRect" parent="Hints/Stand" index="4" unique_id=973017859]
 custom_minimum_size = Vector2(1, 1)
 offset_left = 3.0
 offset_top = 17.0
 offset_right = 5.0
 offset_bottom = 44.0
 
-[node name="Restart" type="Node2D" parent="." index="11" unique_id=667275830]
+[node name="Restart" type="Node2D" parent="Hints" index="2" unique_id=667275830]
 modulate = Color(0.20293474, 0.1197686, 0.022585222, 0.58431375)
 position = Vector2(-303, 32)
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Restart" index="0" unique_id=807575156]
+[node name="Sprite2D" type="Sprite2D" parent="Hints/Restart" index="0" unique_id=807575156]
 position = Vector2(-4, -17)
 texture = SubResource("AtlasTexture_ylsda")
 centered = false
 
-[node name="Sprite2D2" type="Sprite2D" parent="Restart" index="1" unique_id=565987933]
+[node name="Sprite2D2" type="Sprite2D" parent="Hints/Restart" index="1" unique_id=565987933]
 position = Vector2(16, -17)
 texture = SubResource("AtlasTexture_qjm5h")
 centered = false
 
-[node name="Case" parent="." index="12" unique_id=1575121528 instance=ExtResource("4_i4uh8")]
+[node name="Arrows" type="Node2D" parent="Hints" index="3" unique_id=53646809]
+
+[node name="Sprite2D2" type="Sprite2D" parent="Hints/Arrows" index="0" unique_id=1915563910]
+modulate = Color(0.18787709, 0.11049742, 0.01942006, 0.2784314)
+position = Vector2(-111, 0)
+rotation = 1.5707964
+texture = ExtResource("2_msin7")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Hints/Arrows" index="1" unique_id=528058667]
+modulate = Color(0.18787709, 0.11049742, 0.01942006, 0.2784314)
+position = Vector2(288, -33)
+texture = ExtResource("2_msin7")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Hints/Arrows" index="2" unique_id=2076458691]
+modulate = Color(0.18787709, 0.11049742, 0.01942006, 0.2784314)
+position = Vector2(312, -513)
+texture = ExtResource("2_msin7")
+
+[node name="Case" parent="." index="9" unique_id=1575121528 instance=ExtResource("4_i4uh8")]
 position = Vector2(69, -117)
