@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dw55uapkiiclo" path="res://assets/art/hole_phase2_tilemap.png" id="2_r1hme"]
 [ext_resource type="Texture2D" uid="uid://buwit0d266j03" path="res://assets/art/walls_2.png" id="3_o4eo2"]
 
-[node name="LevelTemplate" unique_id=669825193 instance=ExtResource("1_gmtcs")]
+[node name="LevelTemplatePhase2" unique_id=669825193 instance=ExtResource("1_gmtcs")]
 
 [node name="Floor" parent="." index="1" unique_id=785946752]
 custom_textures = Dictionary[int, Texture2D]({

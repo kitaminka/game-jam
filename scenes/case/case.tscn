@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://81bkieco5bp2"]
+
+[ext_resource type="Texture2D" uid="uid://hfht3ah4gcgq" path="res://assets/art/boxes.png" id="1_mbvps"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mbvps"]
+radius = 3.0
+height = 54.0
+
+[node name="Case" type="Sprite2D" unique_id=1575121528]
+texture = ExtResource("1_mbvps")
+offset = Vector2(0, -28)
+hframes = 8
+vframes = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1260665613]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=531246843]
+position = Vector2(0, -4)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_mbvps")
