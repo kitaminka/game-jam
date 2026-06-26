@@ -1,6 +1,7 @@
 # Outro (after final level)
 # J - james
 # P - phone
+# N - narrator
 
 P James, this dialog is not implemented.
 J I know.

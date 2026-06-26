@@ -1,6 +1,7 @@
 # Intro, before first level.
 # P = Phone
 # J = James
+# N = narrator
 
 # this town does not exist, i checked
 N Brackenford, England, 20xx
