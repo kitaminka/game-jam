@@ -5,6 +5,7 @@ extends Control
 signal done
 
 @export var cps: float = 10
+@export var play_sound: bool = true
 
 var data: String
 var tween: Tween
@@ -21,7 +22,8 @@ func _ready() -> void:
 	tween.set_loops(data.length())
 	tween.tween_callback(func () -> void:
 		rich_text_label.visible_characters += 1
-		sfx_player.play_sound("char")
+		if play_sound:
+			sfx_player.play_sound("char")
 	).set_delay(1.0 / cps)
 
 	tween.finished.connect(func () -> void:
