@@ -26,6 +26,7 @@ color = Color(0.07058824, 0.07058824, 0.07058824, 1)
 
 [node name="Main" type="VBoxContainer" parent="." unique_id=405233664]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="Main" unique_id=1493365003]
@@ -49,7 +50,6 @@ text = "Settings"
 
 [node name="Settings" type="VBoxContainer" parent="." unique_id=1614303002]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(213.005, 0)
 layout_mode = 2
 
@@ -72,6 +72,11 @@ text = "Reset progress"
 unique_name_in_owner = true
 ok_button_text = "Reset"
 dialog_text = "Are you sure you want to reset progress?"
+
+[node name="HardModeCheckbox" type="CheckBox" parent="Settings" unique_id=493752315]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Hard Mode"
 
 [node name="LevelSelect" type="VBoxContainer" parent="." unique_id=1449258588]
 unique_name_in_owner = true

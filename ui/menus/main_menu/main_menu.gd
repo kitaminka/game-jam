@@ -10,6 +10,7 @@ extends CenterContainer
 @onready var button_settings: Button = %ButtonSettings
 @onready var button_reset_progress: Button = %ButtonResetProgress
 @onready var confirm_reset: ConfirmationDialog = %ConfirmReset
+@onready var hard_mode_checkbox: CheckBox = %HardModeCheckbox
 
 
 func _ready() -> void:
@@ -41,6 +42,7 @@ func _ready() -> void:
 	confirm_reset.confirmed.connect(Persistence.reset)
 
 	MusicManager.ensure_playing.call_deferred("main_menu")
+	hard_mode_checkbox.toggled.connect(SettingsCfg.set_hard_mode)
 
 
 func _hide_all() -> void:

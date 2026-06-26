@@ -67,6 +67,12 @@ func _ready() -> void:
 	flail_hurt_box.body_entered.connect(_on_flail_enemy_entered)
 	flail_hurt_box.area_entered.connect(_on_flail_enemy_entered)
 
+	if not SettingsCfg.hard_mode():
+		health_component.initial_health *= 2
+		health_component.health *= 2
+		damage_normal *= 2
+		damage_fast *= 2
+
 
 func _physics_process(_delta: float) -> void:
 	player_sprite.global_rotation = 0

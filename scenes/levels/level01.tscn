@@ -35,6 +35,14 @@ region = Rect2(0, 0, 14, 28)
 atlas = ExtResource("3_g0jr5")
 region = Rect2(85, 9, 18, 18)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylsda"]
+atlas = ExtResource("3_g0jr5")
+region = Rect2(111, 9, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjm5h"]
+atlas = ExtResource("3_g0jr5")
+region = Rect2(102, 43, 16, 17)
+
 [node name="LevelTemplate2" unique_id=669825193 instance=ExtResource("1_3n7h2")]
 
 [node name="Floor" parent="." index="1" unique_id=785946752]
@@ -76,7 +84,7 @@ texture = ExtResource("2_msin7")
 
 [node name="Flail" type="Node2D" parent="." index="9" unique_id=1767820972]
 modulate = Color(0.20293474, 0.1197686, 0.022585222, 0.58431375)
-position = Vector2(-360, 10)
+position = Vector2(-360, -18)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Flail" index="0" unique_id=1824487297]
@@ -110,7 +118,7 @@ offset_bottom = 46.0
 
 [node name="Stand" type="Node2D" parent="." index="10" unique_id=635433487]
 modulate = Color(0.20293474, 0.1197686, 0.022585222, 0.58431375)
-position = Vector2(-222, 13)
+position = Vector2(-221, -16)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Stand" index="0" unique_id=1456221349]
@@ -141,3 +149,18 @@ offset_left = 3.0
 offset_top = 17.0
 offset_right = 5.0
 offset_bottom = 44.0
+
+[node name="Restart" type="Node2D" parent="." index="11" unique_id=667275830]
+modulate = Color(0.20293474, 0.1197686, 0.022585222, 0.58431375)
+position = Vector2(-303, 80)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Restart" index="0" unique_id=807575156]
+position = Vector2(-4, -17)
+texture = SubResource("AtlasTexture_ylsda")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="Restart" index="1" unique_id=565987933]
+position = Vector2(16, -17)
+texture = SubResource("AtlasTexture_qjm5h")
+centered = false
