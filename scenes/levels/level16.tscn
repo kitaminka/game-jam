@@ -27,7 +27,7 @@ visible = true
 navigation_polygon = SubResource("NavigationPolygon_ngux6")
 
 [node name="Exit" parent="." index="6" unique_id=652828334]
-position = Vector2(24, -1128)
+position = Vector2(24, -1160)
 
 [node name="CavemanSpear" parent="." index="7" unique_id=1871860269 instance=ExtResource("2_j587p")]
 position = Vector2(-106, -330)

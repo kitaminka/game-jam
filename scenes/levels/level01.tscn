@@ -59,7 +59,7 @@ position = Vector2(-313, 18)
 navigation_polygon = SubResource("NavigationPolygon_3n7h2")
 
 [node name="Exit" parent="." index="6" unique_id=652828334]
-position = Vector2(313, -561)
+position = Vector2(312, -584)
 
 [node name="Arrows" type="Node2D" parent="." index="8" unique_id=53646809]
 

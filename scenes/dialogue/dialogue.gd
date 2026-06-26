@@ -7,6 +7,9 @@ signal finished
 var scenario: String
 var _soft_finished: bool = false
 
+var _is_waiting: bool = false
+signal _wait_interrupted
+
 @onready var container: VBoxContainer = %MessageContainer
 @onready var scroll: ScrollContainer = %ScrollContainer
 
@@ -16,7 +19,7 @@ func _ready() -> void:
 
 
 func _run() -> void:
-	await get_tree().create_timer(2.0).timeout
+	await _wait_or_input(2)
 
 	const LINE_JAMES: PackedScene = preload("res://scenes/dialogue/line_james.tscn")
 	const LINE_PHONE: PackedScene = preload("res://scenes/dialogue/line_phone.tscn")
@@ -56,8 +59,10 @@ func _run() -> void:
 		await get_tree().process_frame
 		scroll.ensure_control_visible(inst)
 
-		await inst.done
-		await get_tree().create_timer(0.5).timeout
+		if not inst.is_done():
+			await inst.done
+
+		await _wait_or_input(0.5)
 
 	var l := Label.new()
 	l.text = "-- PRESS SPACE --"
@@ -69,11 +74,21 @@ func _run() -> void:
 	await get_tree().process_frame
 	scroll.ensure_control_visible(l)
 
-	_soft_finished = true
+	await _wait_or_input(9999999999999)
+	finished.emit()
 
 
 func _input(event: InputEvent) -> void:
-	if _soft_finished and event.is_action_pressed("dialog_skip"):
+	if _is_waiting and event.is_action_pressed("dialog_skip"):
 		get_viewport().set_input_as_handled()
-		finished.emit()
-		_soft_finished = false
+		_wait_interrupted.emit()
+
+
+
+func _wait_or_input(t: float) -> void:
+	_is_waiting = true
+	var timer := get_tree().create_timer(t)
+	timer.timeout.connect(_wait_interrupted.emit)
+	await _wait_interrupted
+	_is_waiting = false
+	timer.timeout.disconnect(_wait_interrupted.emit)

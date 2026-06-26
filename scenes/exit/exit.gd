@@ -6,12 +6,10 @@ signal player_exited
 
 @export var win_condition_enemies: bool = false
 var _enemies_left: int = 0
-@onready var label: Label = $Label
+@onready var pos: Vector2 = ($CollisionShape2D as Node2D).global_position
 
 
 func _ready() -> void:
-	remove_child(label)
-
 	if win_condition_enemies:
 		for enemy in get_tree().get_nodes_in_group(&"enemy"):
 			enemy.got_lobotomized.connect(_on_enemy_death, CONNECT_ONE_SHOT)
@@ -34,15 +32,21 @@ func _on_enemy_death() -> void:
 
 func _update_visual() -> void:
 	if _enemies_left <= 0:
-		($Sprite2D as Node2D).modulate = Color.LIME
+		($Sprite2D as Node2D).hide()
 
 
 func _check_player(silent: bool = false) -> void:
 	if _enemies_left > 0 and not silent:
-		var inst: Label = label.duplicate()
-		add_child(inst)
+		var inst := Label.new()
+		inst.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		inst.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 
+		get_parent().add_child(inst)
+
+		inst.global_position = pos
 		inst.text = "%d left" % _enemies_left
+		inst.z_as_relative = false
+		inst.z_index = 1000
 
 		var t := inst.create_tween().set_parallel()
 		t.tween_property(inst, "position:y", -20, 2.0).as_relative().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)

@@ -33,3 +33,7 @@ func _input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 		tween.custom_step(1e100)
 		tween = null
+
+
+func is_done() -> bool:
+	return is_node_ready() and tween == null

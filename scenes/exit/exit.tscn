@@ -1,36 +1,21 @@
 [gd_scene format=3 uid="uid://c2iawpi0rhu1r"]
 
 [ext_resource type="Script" uid="uid://bgt125d5wu5bp" path="res://scenes/exit/exit.gd" id="1_wmb3t"]
-[ext_resource type="Texture2D" uid="uid://b3ibm6pneahdm" path="res://assets/art/exit_programmerart.png" id="2_tv5rl"]
+[ext_resource type="Texture2D" uid="uid://cavs4vncgv8de" path="res://assets/art/chain_and_lock.png" id="2_wmb3t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wmb3t"]
 radius = 23.021729
 
 [node name="Exit" type="Area2D" unique_id=652828334 groups=["exit"]]
+z_index = 1
 collision_layer = 0
 monitorable = false
 script = ExtResource("1_wmb3t")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1266855190]
-visible = false
 modulate = Color(0.71174395, 0.008318606, 0.26882774, 1)
-texture = ExtResource("2_tv5rl")
+texture = ExtResource("2_wmb3t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1034737586]
+position = Vector2(0, 31)
 shape = SubResource("CircleShape2D_wmb3t")
-
-[node name="Label" type="Label" parent="." unique_id=1136028755]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -51.0
-offset_top = -38.0
-offset_right = 51.0
-offset_bottom = -24.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "12 left"
-horizontal_alignment = 1
-vertical_alignment = 1

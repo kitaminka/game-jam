@@ -33,7 +33,8 @@ position = Vector2(512, -2096)
 navigation_polygon = SubResource("NavigationPolygon_75k5w")
 
 [node name="Exit" parent="." index="6" unique_id=652828334]
-position = Vector2(-24, 264)
+position = Vector2(-24, 296)
+rotation = -3.1415927
 
 [node name="WW1Rifle" parent="." index="8" unique_id=1871860269 instance=ExtResource("3_xd2yy")]
 position = Vector2(160, -2104)
