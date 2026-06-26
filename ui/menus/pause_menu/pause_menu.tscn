@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://qhwla5gydx6a" path="res://ui/menus/pause_menu/pause_menu.gd" id="1_bom27"]
 [ext_resource type="Script" uid="uid://c00x45sfie3gw" path="res://ui/menus/pause_menu/continue_button.gd" id="3_2gx4h"]
 [ext_resource type="Script" uid="uid://xgtpha4h67hg" path="res://ui/menus/pause_menu/return_button.gd" id="4_cid4m"]
+[ext_resource type="PackedScene" uid="uid://m6ihikwu7x8p" path="res://ui/better_button/better_button.tscn" id="4_yio2i"]
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=840180984]
 process_mode = 3
@@ -41,14 +42,14 @@ text = "Paused"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ContinueButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=78623454]
+[node name="ContinueButton" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=78623454 instance=ExtResource("4_yio2i")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Continue"
 script = ExtResource("3_2gx4h")
 metadata/_custom_type_script = "uid://2htt7bkeytt7"
 
-[node name="ReturnButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1724090446]
+[node name="ReturnButton" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1724090446 instance=ExtResource("4_yio2i")]
 layout_mode = 2
 text = "Return to main menu"
 script = ExtResource("4_cid4m")

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://k3m42sh1bjon" path="res://ui/menus/main_menu/main_menu.gd" id="1_6s8a2"]
 [ext_resource type="PackedScene" uid="uid://i0n7cjiw24yl" path="res://ui/settings/audio_settings/audio_settings.tscn" id="2_6s8a2"]
 [ext_resource type="Texture2D" uid="uid://f7xd5gedjmdh" path="res://assets/art/itch_background_seemless.png" id="2_ioe73"]
+[ext_resource type="PackedScene" uid="uid://m6ihikwu7x8p" path="res://ui/better_button/better_button.tscn" id="4_txwgg"]
 
 [node name="MainMenu" type="CenterContainer" unique_id=1098988239]
 anchors_preset = 15
@@ -52,17 +53,17 @@ layout_mode = 2
 layout_mode = 2
 texture = ExtResource("2_ioe73")
 
-[node name="ButtonContinue" type="Button" parent="Main" unique_id=1242504012]
+[node name="ButtonContinue" parent="Main" unique_id=1242504012 instance=ExtResource("4_txwgg")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Continue"
 
-[node name="ButtonLevelSelect" type="Button" parent="Main" unique_id=1536819179]
+[node name="ButtonLevelSelect" parent="Main" unique_id=1536819179 instance=ExtResource("4_txwgg")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Level Select"
 
-[node name="ButtonSettings" type="Button" parent="Main" unique_id=1202367525]
+[node name="ButtonSettings" parent="Main" unique_id=1202367525 instance=ExtResource("4_txwgg")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Settings"
@@ -73,7 +74,7 @@ visible = false
 custom_minimum_size = Vector2(213.005, 0)
 layout_mode = 2
 
-[node name="Button2" type="Button" parent="Settings" unique_id=854117499 groups=["back_button"]]
+[node name="Button2" parent="Settings" unique_id=854117499 groups=["back_button"] instance=ExtResource("4_txwgg")]
 layout_mode = 2
 text = "Back"
 
@@ -83,7 +84,7 @@ layout_mode = 2
 [node name="AudioSettings" parent="Settings/PanelContainer" unique_id=1448240323 instance=ExtResource("2_6s8a2")]
 layout_mode = 2
 
-[node name="ButtonResetProgress" type="Button" parent="Settings" unique_id=1387329608]
+[node name="ButtonResetProgress" parent="Settings" unique_id=1387329608 instance=ExtResource("4_txwgg")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Reset progress"
@@ -111,6 +112,6 @@ theme_override_constants/h_separation = 2
 theme_override_constants/v_separation = 2
 columns = 3
 
-[node name="Button" type="Button" parent="LevelSelect" unique_id=964652125 groups=["back_button"]]
+[node name="Button" parent="LevelSelect" unique_id=964652125 groups=["back_button"] instance=ExtResource("4_txwgg")]
 layout_mode = 2
 text = "Back"

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://m6ihikwu7x8p"]
+
+[ext_resource type="Script" uid="uid://2htt7bkeytt7" path="res://ui/better_button/better_button.gd" id="1_crt31"]
+[ext_resource type="AudioStream" uid="uid://bbxhjj6u05pby" path="res://assets/audio/sfx/human_hit/human_hit_1.wav" id="2_wj5ij"]
+[ext_resource type="AudioStream" uid="uid://0j8wvf0fp7tt" path="res://assets/audio/sfx/human_hit/human_hit_2.wav" id="3_1givc"]
+[ext_resource type="AudioStream" uid="uid://rax6y78twemt" path="res://assets/audio/sfx/human_hit/human_hit_3.wav" id="4_dbp7i"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dtxhd"]
+streams_count = 3
+stream_0/stream = ExtResource("2_wj5ij")
+stream_1/stream = ExtResource("3_1givc")
+stream_2/stream = ExtResource("4_dbp7i")
+
+[node name="BetterButton" type="Button" unique_id=761616903]
+offset_right = 64.0
+offset_bottom = 12.0
+script = ExtResource("1_crt31")
+_press_sfx = SubResource("AudioStreamRandomizer_dtxhd")
+sfx_volume_db = -7.0
