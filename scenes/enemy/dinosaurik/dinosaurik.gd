@@ -85,7 +85,7 @@ func _ready() -> void:
 		var inst: Node2D = DINO_DEATH.instantiate()
 		inst.position = position
 		get_parent().add_child.call_deferred(inst)
-		hide()
+		queue_free()
 	)
 
 
