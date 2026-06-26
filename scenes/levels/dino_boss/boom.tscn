@@ -103,5 +103,5 @@ audio_streams = Dictionary[String, AudioStream]({
 "meteor": ExtResource("6_lp4mj")
 })
 volume_overrides = Dictionary[String, float]({
-"meteor": -7.0
+"meteor": -10.0
 })

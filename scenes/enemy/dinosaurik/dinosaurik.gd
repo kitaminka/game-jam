@@ -195,6 +195,8 @@ func _start_charge() -> void:
 
 	_force_play(&"charge")
 
+	sfx_player.play_sound("dash")
+
 
 func _do_meteor_shower() -> void:
 	if _state_just_changed:
