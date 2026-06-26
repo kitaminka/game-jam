@@ -17,39 +17,42 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0, 0, 0, 0.27450982)
+color = Color(0, 0, 0, 0.4862745)
 metadata/_edit_lock_ = true
 
-[node name="Title" type="Label" parent="." unique_id=1397348034]
-offset_left = 192.0
-offset_top = 64.0
-offset_right = 448.0
-offset_bottom = 160.0
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1875070158]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=1818865588]
+custom_minimum_size = Vector2(347.36, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer" unique_id=672479388]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1397348034]
+layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Paused"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AudioSettings" parent="." unique_id=560887263 instance=ExtResource("1_57ky2")]
-offset_left = 192.0
-offset_top = 256.0
-offset_right = -192.0
-offset_bottom = -1.0
-
-[node name="ContinueButton" type="Button" parent="." unique_id=78623454]
-offset_left = 256.0
-offset_top = 152.0
-offset_right = 384.0
-offset_bottom = 192.0
+[node name="ContinueButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=78623454]
+unique_name_in_owner = true
+layout_mode = 2
 text = "Continue"
 script = ExtResource("3_2gx4h")
 metadata/_custom_type_script = "uid://2htt7bkeytt7"
 
-[node name="ReturnButton" type="Button" parent="." unique_id=1724090446]
-offset_left = 256.0
-offset_top = 200.0
-offset_right = 384.0
-offset_bottom = 240.0
+[node name="ReturnButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1724090446]
+layout_mode = 2
 text = "Return to main menu"
 script = ExtResource("4_cid4m")
 metadata/_custom_type_script = "uid://2htt7bkeytt7"
+
+[node name="AudioSettings" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=560887263 instance=ExtResource("1_57ky2")]
+layout_mode = 2

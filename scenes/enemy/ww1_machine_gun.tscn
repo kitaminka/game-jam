@@ -1,26 +1,35 @@
 [gd_scene format=3 uid="uid://cfpe6i2h63xow"]
 
 [ext_resource type="PackedScene" uid="uid://gbsgy7a03y4m" path="res://scenes/enemy/enemy.tscn" id="1_40tmr"]
-[ext_resource type="PackedScene" uid="uid://fydhb1cxoad6" path="res://scenes/bullet/bullet.tscn" id="2_kk8ny"]
+[ext_resource type="PackedScene" uid="uid://0snxwf0tk8mt" path="res://scenes/bullet/weak_bullet.tscn" id="2_ts0s2"]
 [ext_resource type="Texture2D" uid="uid://cl148x8e0tt8p" path="res://assets/art/all_enemies.png" id="3_ts0s2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_55hp7"]
 atlas = ExtResource("3_ts0s2")
 region = Rect2(225, 12, 26, 32)
 
-[node name="WW1MachineGun" unique_id=1871860269 instance=ExtResource("1_40tmr")]
+[node name="WW1MachineGun" unique_id=1871860269 node_paths=PackedStringArray("shooting_marker") instance=ExtResource("1_40tmr")]
 movement_enabled = true
 movement_speed = 10.0
-movement_stop_distance = 150.0
 melee_enabled = true
 melee_knockback = 200.0
 shooting_enabled = true
-shooting_scene = ExtResource("2_kk8ny")
-shooting_interval = 0.5
+shooting_scene = ExtResource("2_ts0s2")
+shooting_interval = 10.0
+shooting_distance = 150.0
+shooting_marker = NodePath("FlipGroup/Marker2D")
+burst_n = 19
+burst_interval = 0.15
 knockback_multiplier = 0.2
 armour_enabled = true
 armour_efficiency = 1.6
 
-[node name="Sprite2D" parent="." index="4" unique_id=1675653022]
+[node name="HealthComponent" parent="." index="3" unique_id=1186933908]
+initial_health = 200
+
+[node name="Sprite2D" parent="FlipGroup" parent_id_path=PackedInt32Array(1068944302) index="0" unique_id=1675653022]
 texture = SubResource("AtlasTexture_55hp7")
 offset = Vector2(2, -15)
+
+[node name="Marker2D" type="Marker2D" parent="FlipGroup" parent_id_path=PackedInt32Array(1068944302) index="1" unique_id=1392103320]
+position = Vector2(13, -13)

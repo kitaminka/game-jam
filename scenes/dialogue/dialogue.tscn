@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://owmdct846lvi"]
+
+[ext_resource type="Script" uid="uid://b6jknu2xf4lfi" path="res://scenes/dialogue/dialogue.gd" id="1_cpw6a"]
+[ext_resource type="Texture2D" uid="uid://ds7ca4q63k5ui" path="res://assets/art/itch_logo.png" id="4_vh7tq"]
+
+[node name="Dialogue" type="PanelContainer" unique_id=1859713965]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cpw6a")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1220398085]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1985304084]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1244156102]
+layout_mode = 2
+text = "-- INCOMING PHONE CALL --"
+horizontal_alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=1336233434]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer" unique_id=1689392918]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="MessageContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer" unique_id=147296770]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=570479733]
+layout_mode = 2
+texture = ExtResource("4_vh7tq")
+stretch_mode = 3

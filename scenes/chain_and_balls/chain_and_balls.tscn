@@ -106,7 +106,7 @@ physics_material_override = SubResource("PhysicsMaterial_m8ad4")
 freeze_mode = 1
 continuous_cd = 2
 linear_damp_mode = 1
-linear_damp = 0.6
+linear_damp = 0.5
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=730560883]
@@ -115,6 +115,7 @@ hframes = 3
 vframes = 2
 
 [node name="Shadow" type="Sprite2D" parent="Player/Sprite2D" unique_id=1410988615]
+unique_name_in_owner = true
 modulate = Color(0.105882354, 0.105882354, 0.105882354, 0.46666667)
 z_index = -1
 z_as_relative = false

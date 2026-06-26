@@ -1,7 +1,34 @@
+dialog: res://assets/dialogue/intro.txt
+
 res://scenes/levels/level01.tscn
+dialog: res://assets/dialogue/after1.txt
+
 res://scenes/levels/level02.tscn
+dialog: res://assets/dialogue/after2.txt
+
 res://scenes/levels/level03.tscn
+
 res://scenes/levels/level04.tscn
+dialog: res://assets/dialogue/after4.txt
+
 res://scenes/levels/level05.tscn
+
+dialog: res://assets/dialogue/before6.txt
 res://scenes/levels/level06.tscn
 res://scenes/levels/level07.tscn
+
+res://scenes/levels/level08.tscn
+dialog: res://assets/dialogue/after8.txt
+
+res://scenes/levels/level09.tscn
+
+dialog: res://assets/dialogue/before_dino.txt
+res://scenes/levels/dino_boss/dino_boss.tscn
+dialog: res://assets/dialogue/after_dino.txt
+
+res://scenes/levels/level11.tscn
+res://scenes/levels/level12.tscn
+res://scenes/levels/level13.tscn
+res://scenes/levels/level14.tscn
+res://scenes/levels/level15.tscn
+res://scenes/levels/level_chase/level_chase.tscn

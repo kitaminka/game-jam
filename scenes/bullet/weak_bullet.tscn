@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://0snxwf0tk8mt"]
+
+[ext_resource type="PackedScene" uid="uid://fydhb1cxoad6" path="res://scenes/bullet/bullet.tscn" id="1_cl4a7"]
+
+[node name="WeakBullet" unique_id=1843918926 instance=ExtResource("1_cl4a7")]
+damage = 5
+knockback = 50.0

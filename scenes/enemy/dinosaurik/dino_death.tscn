@@ -1,0 +1,249 @@
+[gd_scene format=3 uid="uid://d4gkevx2kblts"]
+
+[ext_resource type="Texture2D" uid="uid://b7jtjlsjglrth" path="res://assets/art/dino_parts.png" id="1_f5qk3"]
+[ext_resource type="Script" uid="uid://n8n1m6p3pre3" path="res://scenes/enemy/dinosaurik/dino_death.gd" id="1_s8750"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8750"]
+atlas = ExtResource("1_f5qk3")
+region = Rect2(0, 0, 69, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60gs3"]
+atlas = ExtResource("1_f5qk3")
+region = Rect2(93, 9, 98, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kq1fl"]
+atlas = ExtResource("1_f5qk3")
+region = Rect2(209, 23, 53, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5qk3"]
+atlas = ExtResource("1_f5qk3")
+region = Rect2(38, 80, 28, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ruqvp"]
+atlas = ExtResource("1_f5qk3")
+region = Rect2(39, 113, 11, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lq2dq"]
+atlas = ExtResource("1_f5qk3")
+region = Rect2(13, 147, 42, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h636r"]
+atlas = ExtResource("1_f5qk3")
+region = Rect2(80, 107, 21, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdgk5"]
+atlas = ExtResource("1_f5qk3")
+region = Rect2(95, 130, 8, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56oil"]
+atlas = ExtResource("1_f5qk3")
+region = Rect2(125, 80, 14, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_diox5"]
+atlas = ExtResource("1_f5qk3")
+region = Rect2(128, 121, 22, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddahw"]
+atlas = ExtResource("1_f5qk3")
+region = Rect2(177, 93, 14, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrm23"]
+atlas = ExtResource("1_f5qk3")
+region = Rect2(170, 126, 17, 29)
+
+[node name="DinoDeath" type="Node2D" unique_id=575533617]
+z_index = -1
+y_sort_enabled = true
+script = ExtResource("1_s8750")
+
+[node name="Head" type="RigidBody2D" parent="." unique_id=850956882]
+position = Vector2(-76, -27)
+collision_layer = 32
+collision_mask = 36
+mass = 2.0
+linear_damp = 2.0
+angular_damp = 2.0
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Head" unique_id=820002793]
+texture = SubResource("AtlasTexture_s8750")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Head" unique_id=1073795909]
+position = Vector2(6.216851, -3.6733582)
+polygon = PackedVector2Array(-40.21685, -1.3266418, -13.216851, 1.6733582, -23.21685, 21.673359, -8.216851, 31.673359, 12.783149, 21.673359, 15.783149, 9.673358, 32.78315, -6.326642, 20.78315, -24.326641, 9.783149, -21.326641, 7.783149, -7.326642, -19.21685, -10.326642)
+
+[node name="Torso" type="RigidBody2D" parent="." unique_id=1050360312]
+position = Vector2(9, -28)
+collision_layer = 32
+collision_mask = 36
+mass = 3.0
+linear_damp = 2.0
+angular_damp = 2.0
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Torso" unique_id=216527099]
+texture = SubResource("AtlasTexture_60gs3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Torso" unique_id=1406963523]
+position = Vector2(-8.527414, -3.0092068)
+polygon = PackedVector2Array(-9.472586, 21.009207, 2.5274143, 26.009207, 27.527414, 2.0092068, 45.527412, 6.009207, 59.527412, -1.9907932, 28.527414, -16.990793, -14.472586, -11.990793, -40.472588, -2.9907932, -39.472588, 9.009207, -18.472586, 7.009207)
+
+[node name="Tail" type="RigidBody2D" parent="." unique_id=1366724935]
+position = Vector2(81, 5)
+collision_layer = 32
+collision_mask = 36
+linear_damp = 2.0
+angular_damp = 2.0
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Tail" unique_id=420983807]
+texture = SubResource("AtlasTexture_kq1fl")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tail" unique_id=847996630]
+position = Vector2(0.9932264, 7.312656)
+polygon = PackedVector2Array(-27.993227, -25.312656, -10.993226, -4.312656, 8.006774, 15.687344, 28.006773, 14.687344, 10.006774, 9.687344, -4.993225, -7.3126564, -16.993227, -31.312656)
+
+[node name="Leg" type="RigidBody2D" parent="." unique_id=2114901565]
+position = Vector2(-43, -9)
+collision_layer = 32
+collision_mask = 36
+mass = 0.5
+linear_damp = 2.0
+angular_damp = 2.0
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Leg" unique_id=1963704856]
+texture = SubResource("AtlasTexture_f5qk3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Leg" unique_id=379547290]
+position = Vector2(-1.9692446, 2.0436506)
+polygon = PackedVector2Array(8.969246, -15.043652, -3.030754, -2.043651, -13.030754, -0.043651104, -10.030754, 9.956348, 0.9692459, 7.956349, 16.969246, -7.043651)
+
+[node name="Leg2" type="RigidBody2D" parent="." unique_id=1710320321]
+position = Vector2(-28, 14)
+collision_layer = 32
+collision_mask = 36
+mass = 0.5
+linear_damp = 2.0
+angular_damp = 2.0
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Leg2" unique_id=955514982]
+texture = SubResource("AtlasTexture_ruqvp")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Leg2" unique_id=860612729]
+position = Vector2(1.03542, 0.44465828)
+polygon = PackedVector2Array(4.9645796, -11.444654, 4.9645796, 13.555346, -4.0354204, 13.555346, -6.0354204, -10.444654, 1.9645795, -14.444654)
+
+[node name="Leg3" type="RigidBody2D" parent="." unique_id=618750810]
+position = Vector2(-19, 39)
+collision_layer = 32
+collision_mask = 36
+mass = 0.5
+linear_damp = 2.0
+angular_damp = 2.0
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Leg3" unique_id=1262200725]
+texture = SubResource("AtlasTexture_lq2dq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Leg3" unique_id=1710911029]
+position = Vector2(-0.052339077, 1.3013347)
+polygon = PackedVector2Array(-19.94766, 2.698667, -20.94766, 8.698668, 3.0523396, 4.698667, 21.05234, -7.301333, 20.05234, -11.301332, -1.9476604, -2.301333)
+
+[node name="Leg4" type="RigidBody2D" parent="." unique_id=274348309]
+position = Vector2(-17, -6)
+collision_layer = 32
+collision_mask = 36
+mass = 0.5
+linear_damp = 2.0
+angular_damp = 2.0
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Leg4" unique_id=1095233005]
+texture = SubResource("AtlasTexture_h636r")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Leg4" unique_id=336129003]
+position = Vector2(-2.0250752, -1.2477875)
+polygon = PackedVector2Array(-6.974926, -6.7522125, -8.974926, -0.75221217, 2.0250738, 3.247788, 9.025074, 9.247787, 14.025074, 7.2477875, 6.025074, -2.752212)
+
+[node name="Leg5" type="RigidBody2D" parent="." unique_id=1577923144]
+position = Vector2(-12, 14)
+collision_layer = 32
+collision_mask = 36
+mass = 0.5
+linear_damp = 2.0
+angular_damp = 2.0
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Leg5" unique_id=238771263]
+texture = SubResource("AtlasTexture_tdgk5")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Leg5" unique_id=878544402]
+position = Vector2(-0.7997737, 2.4340043)
+polygon = PackedVector2Array(0.7997763, -13.434004, -4.200224, -4.4340043, -4.200224, 9.565996, 3.7997763, 8.565996, 4.799776, -0.4340043)
+
+[node name="Leg6" type="RigidBody2D" parent="." unique_id=1574842850]
+position = Vector2(44, -7)
+collision_layer = 32
+collision_mask = 36
+mass = 0.5
+linear_damp = 2.0
+angular_damp = 2.0
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Leg6" unique_id=1666564159]
+texture = SubResource("AtlasTexture_56oil")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Leg6" unique_id=851264634]
+position = Vector2(-0.4580517, -3.8462346)
+polygon = PackedVector2Array(0.45805433, 22.846233, -4.541946, 5.8462343, -6.541946, -13.153766, 6.458054, -15.153766, 7.458054, -10.153766, 2.4580545, -6.1537657, 0.45805433, 5.8462343, 5.458054, 20.846233)
+
+[node name="Leg7" type="RigidBody2D" parent="." unique_id=1924219883]
+position = Vector2(33, 26)
+collision_layer = 32
+collision_mask = 36
+mass = 0.5
+linear_damp = 2.0
+angular_damp = 2.0
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Leg7" unique_id=1597765264]
+texture = SubResource("AtlasTexture_diox5")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Leg7" unique_id=766065748]
+position = Vector2(0.88689184, 0.82937884)
+polygon = PackedVector2Array(-9.88689, -16.829376, 1.1131101, 1.1706238, -11.88689, 13.170624, -6.88689, 17.170624, 6.11311, 16.170624, 12.11311, 8.170624, 6.11311, -1.8293762, -0.88688993, -17.829376)
+
+[node name="Leg8" type="RigidBody2D" parent="." unique_id=1934323445]
+position = Vector2(25, -10)
+collision_layer = 32
+collision_mask = 36
+mass = 0.5
+linear_damp = 2.0
+angular_damp = 2.0
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Leg8" unique_id=39089685]
+texture = SubResource("AtlasTexture_ddahw")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Leg8" unique_id=769901541]
+position = Vector2(0.06944966, 1.083336)
+polygon = PackedVector2Array(2.9305556, -14.083333, -2.0694444, -1.0833334, -8.069445, 8.916667, -2.0694444, 11.916667, 1.9305556, 3.9166665, 7.9305553, -13.083333)
+
+[node name="Leg9" type="RigidBody2D" parent="." unique_id=603191259]
+position = Vector2(6.0000005, 20)
+rotation = -0.4855519
+collision_layer = 32
+collision_mask = 36
+mass = 0.5
+linear_damp = 2.0
+angular_damp = 2.0
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Leg9" unique_id=833538374]
+texture = SubResource("AtlasTexture_mrm23")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Leg9" unique_id=946743080]
+position = Vector2(3.3581228, -1.6045338)
+polygon = PackedVector2Array(-3.358116, -10.395466, -1.3581159, 5.604534, -12.358116, 14.604534, 0.6418841, 17.604534, 4.641884, 6.604534, 2.641884, -7.395466, 7.641884, -10.395466, 0.6418841, -13.395466)

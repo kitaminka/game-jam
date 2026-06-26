@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://pqs00v1i6hyq"]
 
 [ext_resource type="PackedScene" uid="uid://gbsgy7a03y4m" path="res://scenes/enemy/enemy.tscn" id="1_8tta4"]
-[ext_resource type="PackedScene" uid="uid://fydhb1cxoad6" path="res://scenes/bullet/bullet.tscn" id="2_5rbpi"]
+[ext_resource type="PackedScene" uid="uid://0snxwf0tk8mt" path="res://scenes/bullet/weak_bullet.tscn" id="2_5rbpi"]
 [ext_resource type="Texture2D" uid="uid://cl148x8e0tt8p" path="res://assets/art/all_enemies.png" id="2_a34qf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5rbpi"]
@@ -11,19 +11,20 @@ region = Rect2(188, 14, 35, 30)
 [node name="WW1Rifle" unique_id=1871860269 node_paths=PackedStringArray("shooting_marker") instance=ExtResource("1_8tta4")]
 movement_enabled = true
 movement_speed = 25.0
-movement_stop_distance = 150.0
 melee_enabled = true
 melee_damage = 5
 melee_distance = 13.0
 shooting_enabled = true
 shooting_scene = ExtResource("2_5rbpi")
-shooting_interval = 2.0
-shooting_marker = NodePath("Barrel")
+shooting_interval = 3.0
+shooting_distance = 150.0
+shooting_marker = NodePath("FlipGroup/Barrel")
+burst_n = 3
 knockback_multiplier = 1.2
 
-[node name="Sprite2D" parent="." index="4" unique_id=1675653022]
+[node name="Barrel" type="Marker2D" parent="FlipGroup" parent_id_path=PackedInt32Array(1068944302) index="0" unique_id=1943733343]
+position = Vector2(22, -24)
+
+[node name="Sprite2D" parent="FlipGroup" parent_id_path=PackedInt32Array(1068944302) index="1" unique_id=1675653022]
 texture = SubResource("AtlasTexture_5rbpi")
 offset = Vector2(9, -15)
-
-[node name="Barrel" type="Marker2D" parent="." index="9" unique_id=1943733343]
-position = Vector2(22, -24)

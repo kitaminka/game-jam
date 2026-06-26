@@ -22,6 +22,8 @@ enum ChargePhase {
 	RECOVERY,
 }
 
+const DINO_DEATH := preload("res://scenes/enemy/dinosaurik/dino_death.tscn")
+
 @export var contact_damage: int = 20
 @export var contact_knockback: float = 300.0
 
@@ -79,6 +81,12 @@ func _ready() -> void:
 	)
 
 	health_component.died.connect(got_lobotomized.emit)
+	health_component.died.connect(func () -> void:
+		var inst: Node2D = DINO_DEATH.instantiate()
+		inst.position = position
+		get_parent().add_child.call_deferred(inst)
+		hide()
+	)
 
 
 func _fill_states() -> void:

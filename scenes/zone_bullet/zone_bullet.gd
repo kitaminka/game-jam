@@ -20,6 +20,10 @@ func _ready() -> void:
 
 	direction = (cnb.player.global_position - global_position).normalized()
 
+	(func () -> void:
+		direction = (cnb.player.global_position - global_position).normalized()
+	).call_deferred()
+
 
 func _physics_process(delta: float) -> void:
 	position += direction * speed * delta

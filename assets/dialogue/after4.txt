@@ -1,0 +1,12 @@
+# After level 4 (hole intro)
+# J - james
+# P - phone
+
+
+P James, what's your status?
+J Doing great, I am getting quite the workout.
+J Something powerful is doing this, I see multiple rifts open in the museum floor.
+P Are those from your flail by any chance?
+P Don't fall down them, please. Continue to push forward.
+J Will do. [wave]Weeeeeeeeeee![/wave]
+P God dammit.

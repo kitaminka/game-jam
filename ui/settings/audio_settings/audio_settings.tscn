@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b4lw8m4s6631l" path="res://ui/settings/audio_settings/audio_settings.gd" id="1_lfgo3"]
 [ext_resource type="Script" uid="uid://cocpu06gyo2pv" path="res://ui/settings/audio_settings/audio_slider.gd" id="1_vska6"]
 
-[node name="AudioSettings" type="VBoxContainer" groups=["settings_audio"]]
+[node name="AudioSettings" type="VBoxContainer" unique_id=1312608510 groups=["settings_audio"]]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -13,22 +13,23 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lfgo3")
 
-[node name="TitleLabel" type="Label" parent="."]
+[node name="TitleLabel" type="Label" parent="." unique_id=1311612325]
 layout_mode = 2
 text = "Audio Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GeneralContainer" type="HBoxContainer" parent="."]
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1028597981]
 layout_mode = 2
+columns = 2
 
-[node name="GeneralLabel" type="Label" parent="GeneralContainer"]
+[node name="GeneralLabel" type="Label" parent="GridContainer" unique_id=1377015271]
 layout_mode = 2
 text = "General"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GeneralSlider" type="HSlider" parent="GeneralContainer"]
+[node name="GeneralSlider" type="HSlider" parent="GridContainer" unique_id=1984072945]
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 1.0
@@ -37,16 +38,13 @@ value = 0.5
 script = ExtResource("1_vska6")
 bus_name = &"Master"
 
-[node name="MusicContainer" type="HBoxContainer" parent="."]
-layout_mode = 2
-
-[node name="MusicLabel" type="Label" parent="MusicContainer"]
+[node name="MusicLabel" type="Label" parent="GridContainer" unique_id=1401227625]
 layout_mode = 2
 text = "    Music"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MusicSlider" type="HSlider" parent="MusicContainer"]
+[node name="MusicSlider" type="HSlider" parent="GridContainer" unique_id=1123954118]
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 1.0
@@ -55,16 +53,13 @@ value = 0.5
 script = ExtResource("1_vska6")
 bus_name = &"Music"
 
-[node name="SFXContainer" type="HBoxContainer" parent="."]
-layout_mode = 2
-
-[node name="SFXLabel" type="Label" parent="SFXContainer"]
+[node name="SFXLabel" type="Label" parent="GridContainer" unique_id=12096470]
 layout_mode = 2
 text = "        SFX"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SFXSlider" type="HSlider" parent="SFXContainer"]
+[node name="SFXSlider" type="HSlider" parent="GridContainer" unique_id=647295770]
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 1.0

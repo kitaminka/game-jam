@@ -1,0 +1,16 @@
+# Intro, before first level.
+# P = Phone
+# J = James
+
+P James, this is you briefing. Listen closely.
+J I'm all ears.
+P Have you arrived at the History Museum?
+J Yes, the scenery is nice.
+P Remember, this is a recon mission. You are not armed. No one has to die today.
+J There might be a problem with that.
+J You see, already went by the medieval section.
+J I couldn't resist.
+P ...
+P This is highly inappropriate, James. Remember, this is a [shake]serious[/shake] mission.
+P Report anything suspicious. You job is to investigate.
+J Oh common, you're no [wave]fun[/wave].

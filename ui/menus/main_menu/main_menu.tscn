@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://k3m42sh1bjon" path="res://ui/menus/main_menu/main_menu.gd" id="1_6s8a2"]
 [ext_resource type="PackedScene" uid="uid://i0n7cjiw24yl" path="res://ui/settings/audio_settings/audio_settings.tscn" id="2_6s8a2"]
+[ext_resource type="Texture2D" uid="uid://f7xd5gedjmdh" path="res://assets/art/itch_background_seemless.png" id="2_ioe73"]
 
 [node name="MainMenu" type="CenterContainer" unique_id=1098988239]
 anchors_preset = 15
@@ -11,25 +12,26 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6s8a2")
 
+[node name="Node" type="Node" parent="." unique_id=1130586899]
+
+[node name="ColorRect" type="ColorRect" parent="Node" unique_id=1802244130]
+z_index = -5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.07058824, 0.07058824, 0.07058824, 1)
+
 [node name="Main" type="VBoxContainer" parent="." unique_id=405233664]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="Title" type="RichTextLabel" parent="Main" unique_id=355611257]
+[node name="TextureRect" type="TextureRect" parent="Main" unique_id=1493365003]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 48
-theme_override_font_sizes/bold_font_size = 48
-theme_override_font_sizes/bold_italics_font_size = 48
-theme_override_font_sizes/italics_font_size = 48
-theme_override_font_sizes/mono_font_size = 48
-text = "THE Game"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-vertical_alignment = 2
-justification_flags = 162
+texture = ExtResource("2_ioe73")
 
 [node name="ButtonContinue" type="Button" parent="Main" unique_id=1242504012]
 unique_name_in_owner = true
@@ -48,7 +50,6 @@ text = "Settings"
 
 [node name="Settings" type="VBoxContainer" parent="." unique_id=1614303002]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(213.005, 0)
 layout_mode = 2
 
@@ -72,8 +73,14 @@ unique_name_in_owner = true
 ok_button_text = "Reset"
 dialog_text = "Are you sure you want to reset progress?"
 
+[node name="HardModeCheckbox" type="CheckBox" parent="Settings" unique_id=493752315]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Hard Mode"
+
 [node name="LevelSelect" type="VBoxContainer" parent="." unique_id=1449258588]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(284.72, 167.565)
 layout_mode = 2
 

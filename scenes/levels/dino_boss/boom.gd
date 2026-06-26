@@ -35,5 +35,11 @@ func execute() -> void:
 		elif col.collider == cnb.flail:
 			cnb.flail.apply_central_impulse(global_position.direction_to(cnb.flail.global_position) * knockback)
 
-	await animation_finished
-	queue_free()
+	await get_tree().create_timer(0.1).timeout
+
+	get_child(0).show()
+
+	var t := create_tween()
+	t.tween_interval(3.0)
+	t.chain().tween_property(self, "modulate:a", 0.0, 1.0)
+	t.chain().tween_callback(queue_free)

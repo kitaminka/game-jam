@@ -25,6 +25,8 @@ func _on_dino_damaged(_amount: int) -> void:
 func _on_boss_started() -> void:
 	boss_ui.show()
 
+	MusicManager.ensure_playing("dino_boss")
+
 	_initial_zoom = boss_camera.zoom
 	_initial_pos = boss_camera.global_position
 
@@ -48,6 +50,8 @@ func _on_boss_died() -> void:
 	t.chain().tween_callback(func() -> void:
 		boss_camera.enabled = false
 	)
+
+	MusicManager.fade_to_stop(2)
 
 
 var _initial_pos: Vector2

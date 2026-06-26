@@ -1,0 +1,15 @@
+# After first level (tutorial)
+# P = Phone
+# J = James
+
+
+P [shake]Are you out of your mind?? Is that a flail?[/shake]
+J You be [wave]it is[/wave]. The craftsmanship is impeccable.
+P You are threatening the reputation of MA6! [i]We should have given you a gun...[/i]
+P Listen here: you are very lucky. Normally this would qualify treason. But I am getting reports of hostiles and we require all support that we can get.
+J Finally, some recognition.
+P I will follow along for now, but if you threaten the public image of our fine establishment, MA6 will make you disappear.
+J I'll be [wave]fiiiine[/wave].
+P You are authorized to kill.
+J Kill anything that moves, got it.
+P [shake]That's not what i said[/shake].

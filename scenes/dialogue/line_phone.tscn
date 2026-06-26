@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://ddma8cdvhilfb"]
+
+[ext_resource type="PackedScene" uid="uid://d1ktnomh5f7r8" path="res://scenes/dialogue/line_james.tscn" id="1_34tb5"]
+[ext_resource type="Texture2D" uid="uid://bhjs70u74xda4" path="res://assets/art/faces.png" id="2_eiguw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0iqw"]
+atlas = ExtResource("2_eiguw")
+region = Rect2(22, 0, 22, 22)
+
+[node name="LineJames" unique_id=981304959 instance=ExtResource("1_34tb5")]
+
+[node name="TextureRect2" type="TextureRect" parent="." index="0" unique_id=1757031304]
+layout_mode = 2
+texture = SubResource("AtlasTexture_k0iqw")
+stretch_mode = 2
+
+[node name="VSeparator2" type="VSeparator" parent="." index="1" unique_id=185249973]
+layout_mode = 2
+
+[node name="RichTextLabel" parent="." index="2" unique_id=911454223]
+horizontal_alignment = 0
+
+[node name="VSeparator" parent="." index="3" unique_id=805283388]
+visible = false
+
+[node name="TextureRect" parent="." index="4" unique_id=355498445]
+visible = false
