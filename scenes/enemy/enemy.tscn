@@ -10,6 +10,9 @@
 [ext_resource type="AudioStream" uid="uid://bbxhjj6u05pby" path="res://assets/audio/sfx/human_hit/human_hit_1.wav" id="8_hvxgb"]
 [ext_resource type="AudioStream" uid="uid://0j8wvf0fp7tt" path="res://assets/audio/sfx/human_hit/human_hit_2.wav" id="9_peoo5"]
 [ext_resource type="AudioStream" uid="uid://rax6y78twemt" path="res://assets/audio/sfx/human_hit/human_hit_3.wav" id="10_2f3il"]
+[ext_resource type="AudioStream" uid="uid://ceojr2af5hkyb" path="res://assets/audio/sfx/shoot_quiet.wav" id="11_dtxhd"]
+[ext_resource type="AudioStream" uid="uid://bky4uymo6j5vy" path="res://assets/audio/sfx/dash/dash_1.wav" id="12_dtxhd"]
+[ext_resource type="AudioStream" uid="uid://c4naj2igjl1uj" path="res://assets/audio/sfx/dash/dash_2.wav" id="13_so3kp"]
 
 [sub_resource type="Animation" id="Animation_tjssy"]
 length = 0.001
@@ -109,6 +112,11 @@ streams_count = 2
 stream_0/stream = ExtResource("6_cwlon")
 stream_1/stream = ExtResource("7_nbhyu")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5woo5"]
+streams_count = 2
+stream_0/stream = ExtResource("12_dtxhd")
+stream_1/stream = ExtResource("13_so3kp")
+
 [node name="Enemy" type="CharacterBody2D" unique_id=1871860269 groups=["enemy"]]
 collision_layer = 2
 collision_mask = 6
@@ -173,5 +181,7 @@ debug_color = Color(0, 0.2120524, 0.2536231, 0.41960785)
 [node name="SfxPlayer" parent="." unique_id=829347479 instance=ExtResource("5_gl05p")]
 audio_streams = Dictionary[String, AudioStream]({
 "damaged": SubResource("AudioStreamRandomizer_dtxhd"),
-"fall_into_a_hole": SubResource("AudioStreamRandomizer_13gj6")
+"dash": SubResource("AudioStreamRandomizer_5woo5"),
+"fall_into_a_hole": SubResource("AudioStreamRandomizer_13gj6"),
+"shoot": ExtResource("11_dtxhd")
 })

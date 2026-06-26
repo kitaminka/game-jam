@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://clhpeda7lk04e" path="res://scenes/dialogue/dialog_line.gd" id="1_bdwda"]
 [ext_resource type="Texture2D" uid="uid://367220n2pkao" path="res://assets/art/Balld_JamesBalld.png" id="2_qsbg4"]
 [ext_resource type="PackedScene" uid="uid://dw4q7rpb4mh6h" path="res://scenes/audio/sfx_player/sfx_player.tscn" id="3_s47pb"]
-[ext_resource type="AudioStream" uid="uid://bydrb5a1hqa8m" path="res://assets/audio/sfx/dialogue/dialog_voice_james_quite.wav" id="4_3j3n7"]
+[ext_resource type="AudioStream" uid="uid://bydrb5a1hqa8m" path="res://assets/audio/sfx/dialogue/dialog_voice_james_quiet.wav" id="4_3j3n7"]
 
 [node name="LineJames" type="HBoxContainer" unique_id=981304959]
 offset_right = 35.0

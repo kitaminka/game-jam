@@ -128,7 +128,8 @@ func _physics_process(delta: float) -> void:
 				# note: we are using stale direction on purpose
 				_dash_velocity = dir * dash_velocity
 				_time_since_dash = 0
-				_about_to_dash = false,
+				_about_to_dash = false
+				sfx_player.play_sound("dash"),
 				CONNECT_ONE_SHOT)
 
 	if knockback_enabled:
@@ -255,6 +256,8 @@ func _rand_sign() -> float:
 func _shoot() -> void:
 	if _was_lobotomized:
 		return
+
+	sfx_player.play_sound("shoot")
 
 	var inst := shooting_scene.instantiate() as Node2D
 

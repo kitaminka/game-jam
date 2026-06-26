@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://7b10ef7avm1e"
-path="res://.godot/imported/dialog_voice_p_quite.wav-67a07f9ffa3007de31601f895ab9e3c6.sample"
+path="res://.godot/imported/dialog_voice_p_quiet.wav-778140c10fb50eb4a375175ef59d968a.sample"
 
 [deps]
 
-source_file="res://assets/audio/sfx/dialogue/dialog_voice_p_quite.wav"
-dest_files=["res://.godot/imported/dialog_voice_p_quite.wav-67a07f9ffa3007de31601f895ab9e3c6.sample"]
+source_file="res://assets/audio/sfx/dialogue/dialog_voice_p_quiet.wav"
+dest_files=["res://.godot/imported/dialog_voice_p_quiet.wav-778140c10fb50eb4a375175ef59d968a.sample"]
 
 [params]
 

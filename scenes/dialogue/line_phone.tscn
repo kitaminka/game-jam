@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d1ktnomh5f7r8" path="res://scenes/dialogue/line_james.tscn" id="1_34tb5"]
 [ext_resource type="Texture2D" uid="uid://mpd1ehqvah1t" path="res://assets/art/mr_EVIL.png" id="2_tkd6t"]
-[ext_resource type="AudioStream" uid="uid://7b10ef7avm1e" path="res://assets/audio/sfx/dialogue/dialog_voice_p_quite.wav" id="3_et6yg"]
+[ext_resource type="AudioStream" uid="uid://7b10ef7avm1e" path="res://assets/audio/sfx/dialogue/dialog_voice_p_quiet.wav" id="3_et6yg"]
 
 [node name="LineJames" unique_id=981304959 instance=ExtResource("1_34tb5")]
 
